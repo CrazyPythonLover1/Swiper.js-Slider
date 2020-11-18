@@ -1,0 +1,54 @@
+#education{
+}
+
+.section-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #432e30;
+}
+
+#education ul{
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    padding-right: 10px;
+    margin-bottom: 3px;
+}
+
+#education ul li{
+    margin: 0 5px;
+    padding: 0 8px;
+    cursor: pointer;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+#education .mba {
+    font-weight: 700;
+    border-bottom: 1px solid #432e30;
+    padding-bottom: 2px;
+}
+
+#education .bs{
+    font-weight: 700;
+    border-bottom: 1px solid #432e30;
+    padding-bottom: 2px;
+    z-index: 1000;
+}
+
+.edu-info{
+    background-color: #f8f8fa;
+    padding: 15px 24px;
+    border: 1px solid #f0e8e8;
+    border-radius: 3px;
+    font-family: Space Mono, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+}
+
+.edu-info span{
+    display: block;
+    color: #8e7474;
+    font-size: 13px;
+    font-family: monospace;
+    line-height: 1.2;
+    white-space: normal;
+
+}
