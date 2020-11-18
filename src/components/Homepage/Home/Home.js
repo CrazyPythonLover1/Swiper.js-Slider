@@ -41,7 +41,7 @@ const Home = () => {
             handleWorkBgcolor()}}>
 
             <Navbar color={siteInfo.work?.color} fontColor={siteInfo.work?.fontColor} />
-            <Popup/>
+            {/* <Popup/> */}
             <Header color={siteInfo.work?.color} fontColor={siteInfo.work?.fontColor} bgColor={siteInfo.work?.bgColor} />
             <div className="container-fluid">
                 <div className="row mx-auto" style={{maxWidth: "1300px"}}>

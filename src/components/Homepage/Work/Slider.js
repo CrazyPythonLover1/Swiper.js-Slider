@@ -23,13 +23,16 @@ const Slider = ({works}) => {
             navigation
             pagination
             spaceBetween={50}
-            slidesPerView={3}
             onSlideChange={() => console.log("slide change ")}
             onSwiper={(swiper)=> console.log(swiper)}
             loop="true"
             breakpoints={{
+              350:{
+                width: 350,
+                slidesPerView: 1,
+              },
               576:{
-                width: 576,
+                width: 513,
                 slidesPerView: 1,
               },
               768:{
@@ -39,18 +42,23 @@ const Slider = ({works}) => {
               992:{
                 width: 992,
                 slidesPerView: 3,
+              },
+              1100:{
+                width: 1100,
+                slidesPerView: 3,
               }
+              
             }}
             > 
               {
                 works.map((work,index) => (
                   <SwiperSlide key={`slide-${index}`} tag="li" style={{listStyle:"none"}} >  
-                    <a >
+                 
                     <div class="news-date">
                         {work?.startDate && <span className="date" style={{color: "#a5c261"}}> <span> $ </span> {work?.startDate} </span>}
-                        {work?.endDate && <span className="date" style={{color: "#a5c261"}}> <span> $ </span> {work?.endDate} </span>}
+                        {work?.endDate && <span className="date" style={{color: "#a5c261"}}> <span> - $ </span> {work?.endDate} </span>}
                     </div>
-                    <div class="news__title">
+                    <div class="news__title" style={{height: "48px"}}>
                       {work.company}
                     </div>
                     <p class="job-summary">
@@ -59,7 +67,6 @@ const Slider = ({works}) => {
                     <p class="job-description">
                       {work.highlights}
                     </p>
-                    </a>
                   </SwiperSlide>
                 ) )
               }

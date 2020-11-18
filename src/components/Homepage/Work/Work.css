@@ -38,6 +38,8 @@
 #work .button-group{
     display: flex;
     justify-content: space-between;
+    max-width: 1060px;
+    margin: auto;
 }
 
 .button-group button{
@@ -151,7 +153,3 @@ audio  input[pseudo="-webkit-media-controls-play-button"] {
 }
 
 
-.swiper-container {
-    width: 600px;
-    height: 300px;
-}

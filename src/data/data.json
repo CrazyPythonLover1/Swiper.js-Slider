@@ -47,7 +47,8 @@
       { "id": 1,
         "company": "Staten Island Performing Provider System",
         "position": "Data Analytics Lead",
-        "startDate": "2017-04-01",
+        "startDate": "2017",
+        "month": "April",
         "endDate": "2019-03-01",
         "summary": "Built Azure-based data warehouse to improve healthcare delivery",
         "highlights": [
@@ -63,7 +64,8 @@
       { "id": 2,
         "company": "Big Data Storm",
         "position": "Cofounder",
-        "startDate": "2015-10-01",
+        "startDate": "2015",
+        "month": "October",
         "endDate": "2017-04-01",
         "summary": "Built GPU-based big data sorting solutions to speed up sorting and analytically challenging processes.",
         "highlights": [
@@ -79,7 +81,8 @@
       { "id": 3,
         "company": "Artnet",
         "position": "Data Scientist",
-        "startDate": "2014-06-01",
+        "startDate": "2014",
+        "month": "June",
         "endDate": "2015-10-01",
         "summary": "Full cycle of marketing and financial reporting for every department in organization: data integration, data warehouse development, web log analysis, ETL via SSIS, reporting via SSRS, complex SQL development, Git, Google Analytics and email logs to data warehouse feeds, business analysis and development of data products and reports for dozens of customers within company.",
         "highlights": [
@@ -95,7 +98,8 @@
       { "id": 4,
         "company": "RER Research",
         "position": "Principal",
-        "startDate": "2003-03-01",
+        "startDate": "2003",
+        "month": "March",
         "endDate": "2014-06-01",
         "summary": "Built a data warehouse/analytical system for 24/5 real-time financial markets analysis using various financial, exchange and regulatory data.",
         "highlights": [
@@ -112,7 +116,8 @@
       { "id": 5,
         "company": "RxClinical Corp. ",
         "position": "Consultant",
-        "startDate": "2005-12-01",
+        "startDate": "2005",
+        "month": "December",
         "endDate": "2008-08-01",
         "summary": "Developed and supported data infrastructure for a clinical research organization.",
         "highlights": [
