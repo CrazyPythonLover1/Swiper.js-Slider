@@ -37,7 +37,7 @@
 }
 #work .button-group{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     max-width: 1060px;
     margin: auto;
 }
