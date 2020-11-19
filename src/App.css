@@ -24,8 +24,16 @@
     padding-left: .7rem;
   }
 
+  #header .header-title{
+    padding: 0 !important;
+  }
+
+  #header .header-text .styles_typicalWrapper__1_Uvh{
+    margin: 0;
+  }
+
   #work{
-    margin-top: -180px !important;
+    margin-top: -190px !important;
     padding: 0 !important;
   }
 
@@ -33,6 +41,11 @@
   #work .button-group{
     justify-content: center !important;
     position: relative;
+    margin-bottom: 20px !important;
+  }
+
+  .job-bg{
+    top: 60px !important;
   }
 
   #work .button-group button{

@@ -17,7 +17,7 @@ const Header = ({color,fontColor, bgColor}) => {
                     <h1 className="pt-4 pb-3 header-title" style={{color:fontColor, fontWeight:"900", fontSize:" 2em"}} >
                         {resumeData.basics.name}
                     </h1>
-                    <div style={{color:color, fontFamily:"'Nunito Sans', sans-serif"}}>
+                    <div className="header-text" style={{color:color, fontFamily:"'Nunito Sans', sans-serif"}}>
                         <Typical
                             loop={Infinity}
                             wrapper="p"

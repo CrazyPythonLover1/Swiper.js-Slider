@@ -62,12 +62,15 @@ useEffect( () => {
   
   if(window.innerWidth < 650){
     if(cssProperty.left<40){
-      setCssProperty({left:30})
+      setCssProperty({left:39})
       console.log(cssProperty.left)
-  } else if(  cssProperty.left < 65){
-      setCssProperty({ left:40})
+  } else if( cssProperty.left < 65){
+      setCssProperty({ left:65})
       console.log(cssProperty.left)
-  } 
+  } else if( cssProperty.left < 110){
+    setCssProperty({ left:90})
+    console.log(cssProperty.left)
+} 
   }
   
 }, [cssProperty.left] )
