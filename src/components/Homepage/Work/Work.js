@@ -7,7 +7,7 @@ import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import Slider from './Slider';
 
 
-const Work = ({ work, handleClick, workBgColor, works }) => {
+const Work = ({ work, handleClick, workBgColor, works, setCssProperty}) => {
     const [audio, setAudio] = useState();
     const [active, setActive] = useState(false);
     if (work?.id) {
@@ -48,7 +48,7 @@ const Work = ({ work, handleClick, workBgColor, works }) => {
                     <a href="../../../data/Resume/US.docx" download> <button className="letter" onClick={(e) => e.stopPropagation() }> <span>   LETTER   </span>  </button> </a>
                     <span className="or"> or </span>
                 </div>
-                    <Slider works={works} />
+                    <Slider works={works} setCssProperty={setCssProperty} />
                     
 
             </div>

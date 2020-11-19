@@ -35,6 +35,9 @@ const Home = () => {
             setWorkBgColor( works[siteInfo.count].bgColor)
         }
     }
+
+    const [cssProperty, setCssProperty] = useState({});
+    console.log(cssProperty)
     return (
         <div className="background"  id="home" style={{ background: siteInfo.bgColor, minHeight: "100vh" }} onClick={() => {
             // handleClick()
@@ -44,16 +47,17 @@ const Home = () => {
             {/* <Popup/> */}
             <Header color={siteInfo.work?.color} fontColor={siteInfo.work?.fontColor} bgColor={siteInfo.work?.bgColor} />
             <div className="container-fluid">
+           
                 <div className="row mx-auto" style={{maxWidth: "1300px"}}>
                     {/* <div className="col-md-2 col-sm-1 col-xs-1 " > </div> */}
 
-                    <div className="col-md-12 col-sm-9 col-xs-9 mx-auto work-column p-0 m-0" >
+                    <div className="col-md-12 col-sm-12 col-xs-9 mx-auto work-column p-0 m-0" >
                         
                         {/* {
                             works && works.map(work => <Work work={siteInfo.work} handleClick={handleClick} workBgColor={workBgColor} />)
                         } */}
 
-                        <Work work={siteInfo.work} handleClick={handleClick} workBgColor={workBgColor} works={works} />
+                        <Work work={siteInfo.work} handleClick={handleClick} workBgColor={workBgColor} works={works} setCssProperty={setCssProperty} />
                         <div style={{ width: " 100%", minHeight: "50px" }}> </div>
                     </div>
 

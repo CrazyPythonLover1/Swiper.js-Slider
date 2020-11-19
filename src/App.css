@@ -3,6 +3,13 @@
   overflow:hidden !important;
 }
 
+@media only screen and (max-width: 768px){
+  #work{
+    margin-top: -180px !important;
+    padding: 0 !important;
+  }
+}
+
 
 @media only screen and (max-width: 576px) {
   
@@ -18,9 +25,8 @@
   }
 
   #work{
-    margin-left: 8% !important;
-    margin-right: 8% !important;
     margin-top: -180px !important;
+    padding: 0 !important;
   }
 
 

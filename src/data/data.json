@@ -49,7 +49,8 @@
         "position": "Data Analytics Lead",
         "startDate": "17",
         "month": "April",
-        "endDate": "2019-03-01",
+        "endDate": "19",
+        "endMonth": "March",
         "summary": "Built Azure-based data warehouse to improve healthcare delivery",
         "highlights": [
           "Managed ETL, analytics and reports distribution related to dozens of agencies and providers and over one hundred thousand patients",
@@ -66,7 +67,8 @@
         "position": "Cofounder",
         "startDate": "15",
         "month": "October",
-        "endDate": "2017-04-01",
+        "endDate": "17",
+        "endMonth": "April",
         "summary": "Built GPU-based big data sorting solutions to speed up sorting and analytically challenging processes.",
         "highlights": [
           "Created a component to seamlessly replace CPU-based sorter with GPU-based equivalent for large scale ETL implementations.",
@@ -83,7 +85,8 @@
         "position": "Data Scientist",
         "startDate": "14",
         "month": "June",
-        "endDate": "2015-10-01",
+        "endDate": "15",
+        "endMonth": "October",
         "summary": "Full cycle of marketing and financial reporting for every department in organization: data integration, data warehouse development, web log analysis, ETL via SSIS, reporting via SSRS, complex SQL development, Git, Google Analytics and email logs to data warehouse feeds, business analysis and development of data products and reports for dozens of customers within company.",
         "highlights": [
           "Enhanced product offering while reducing churn by 30% through integrating Google Analytics with existing analytics infrastructure",
@@ -100,7 +103,8 @@
         "position": "Principal",
         "startDate": "03",
         "month": "March",
-        "endDate": "2014-06-01",
+        "endDate": "14",
+        "endMonth": "June",
         "summary": "Built a data warehouse/analytical system for 24/5 real-time financial markets analysis using various financial, exchange and regulatory data.",
         "highlights": [
           "C# for gathering, real-time and batch ETL processing of various high and low latency financial market data.",
@@ -118,7 +122,8 @@
         "position": "Consultant",
         "startDate": "05",
         "month": "December",
-        "endDate": "2008-08-01",
+        "endDate": "08",
+        "endMonth": "August",
         "summary": "Developed and supported data infrastructure for a clinical research organization.",
         "highlights": [
           "Developed logical and physical database structures to capture results of clinical tests.",
