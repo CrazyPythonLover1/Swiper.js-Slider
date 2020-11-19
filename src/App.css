@@ -26,6 +26,7 @@
 
   #header .header-title{
     padding: 0 !important;
+    margin-top: -10px;
   }
 
   #header .header-text .styles_typicalWrapper__1_Uvh{
