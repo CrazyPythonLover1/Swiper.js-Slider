@@ -25,9 +25,10 @@ const Slider = ({works}) => {
 const mouseHover = (e) => {
   const {width, left, top, bottom} = e.target.parentNode.getBoundingClientRect()
   setCssProperty({width, left, top, bottom})
-  console.log(e.target.parentNode)
+
+  setIsShown(true)
 }
-// console.log(cssProperty)
+
 
 // useEffect(() => {
 //   const {left} = ref.current.getBoundingClientRect();
@@ -38,15 +39,50 @@ const mouseHover = (e) => {
 //   const {width} = ref.current.getBoundingClientRect();
 //   console.log(width);
 // }
+
+
+//width:cssProperty.width, left:cssProperty.left, top:cssProperty.top, bottom:cssProperty.bottom,
+
+useEffect( () => {
+  if(window.innerWidth > 1300 ){
+    if(cssProperty.left<420){
+        setCssProperty({left:130})
+        console.log(cssProperty.left)
+    } else if(  cssProperty.left < 788){
+        setCssProperty({ left:500})
+        console.log(cssProperty.left)
+    } else if(  cssProperty.left < 1164){
+        setCssProperty({ left:870})
+        console.log(cssProperty.left)
+    } else if( cssProperty.left<100){
+        setCssProperty({left:90})
+        console.log(cssProperty.left)
+    }
+  }
+  
+  if(window.innerWidth < 650){
+    if(cssProperty.left<40){
+      setCssProperty({left:30})
+      console.log(cssProperty.left)
+  } else if(  cssProperty.left < 65){
+      setCssProperty({ left:40})
+      console.log(cssProperty.left)
+  } 
+  }
+  
+}, [cssProperty.left] )
+
+console.log(cssProperty.left)
     return (
         <div>
-         {/*  */}
-         {cssProperty.top && <div className="job-bg" style={{transform:`translateX(${cssProperty.left-30}px)`, width:`${cssProperty.width}px`, height:`${cssProperty.bottom-cssProperty.top}px`, minHeight:"500px", minWidth:"300px"}}>  </div> }
+          {/* (100<cssProperty.left<420 && "100px") || (cssProperty.left<788 && "460px") ||  (790<cssProperty.left<1154 && "825px") */}
+         {/* 100<cssProperty.left<420 && "90" || 400<cssProperty.left<788 && "460" ||  790<cssProperty.left<1154 && "825" || cssProperty.left */}
+         {true && <div className="job-bg" style={{transform:`translateX(${cssProperty.left-40}px)`, width:`${cssProperty.width+30}px`, height:`${cssProperty.bottom-cssProperty.top}px`, minHeight:"500px", minWidth:"300px"}}>  </div> }
             <Swiper
             id="main"
             tag="section"
             wrapperTag="ul"
-            spaceBetween={0}
+            spaceBetween={10}
             slidesPerView={1}
             onSlideChange={() =>  setIsShown(!isShown)  }
             onSwiper={(swiper)=> console.log()}
@@ -85,7 +121,7 @@ const mouseHover = (e) => {
                   >  
                      
                     {/* <div className="job-bg" style={{opacity:0, transform:`translateX(${left}px)`}}></div> */}
-                    <div  onMouseOver={(e)=> mouseHover(e)}>
+                    <div  onMouseEnter={(e)=> mouseHover(e)}  onMouseLeave={() => setIsShown(false)}>
                     <div className="job-info" style={{marginBottom:"5px", padding: "0 10px"}}
                     ref={el => {
                       // el can be null - see https://reactjs.org/docs/refs-and-the-dom.html#caveats-with-callback-refs
@@ -105,7 +141,7 @@ const mouseHover = (e) => {
                             {work?.endMonth && <span className="date" style={{color: "#fff", fontSize:"1rem"}}> {work?.endMonth} </span>}
                         </div>
                       </div>
-                      <div class="news__title" style={{height: "88px", fontSize:"24px"}}>
+                      <div class="news__title" style={{height: "100px", fontSize:"24px"}}>
                         {work.company} <br/>
                         {work.position}
                       </div>
