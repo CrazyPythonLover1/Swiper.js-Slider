@@ -37,8 +37,8 @@
 }
 #work .button-group{
     display: flex;
-    justify-content: space-around;
-    max-width: 1060px;
+    justify-content: space-between;
+    max-width: 1040px;
     margin: auto;
 }
 
@@ -88,7 +88,7 @@
     left: 0;
     width: 0;
     height: 100%;
-    background: orange;
+    background: #a5c261;
     transition: all .35s linear;
 }
 

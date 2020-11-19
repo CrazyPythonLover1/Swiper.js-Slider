@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import './Slide.css'
+import './Slider.css'
 // 
 import { Swiper, SwiperSlide} from 'swiper/react';
 // import SwiperCore, {Navigation, Pagination} from 'swiper';
@@ -31,7 +31,7 @@ const mouseHover = (e) => {
 
 const mouseLeave = (e) => {
   setIsShown(false)
-  setCssProperty({opacity:0})
+  setCssProperty({opacity:0, activeClass:"activeClass"})
 }
 
 
@@ -85,7 +85,7 @@ console.log(cssProperty.left)
         <div>
           {/* (100<cssProperty.left<420 && "100px") || (cssProperty.left<788 && "460px") ||  (790<cssProperty.left<1154 && "825px") */}
          {/* 100<cssProperty.left<420 && "90" || 400<cssProperty.left<788 && "460" ||  790<cssProperty.left<1154 && "825" || cssProperty.left */}
-          { <div className="job-bg" style={{transform:`translateX(${cssProperty.left}px)`, 
+          { <div className={`job-bg ${cssProperty.activeClass}`} style={{transform:`translateX(${cssProperty.left}px)`, 
               width:`${cssProperty.width+30}px`, height:`${cssProperty.bottom-cssProperty.top}px`, 
               minHeight:"500px", minWidth:"300px", opacity:`${cssProperty.opacity}`, 
               }}
@@ -155,15 +155,15 @@ console.log(cssProperty.left)
                             {work?.endMonth && <span className="month" style={{color: "#fff", fontSize:"1rem"}}> {work?.endMonth} </span>}
                         </div>
                       </div>
-                      <div class="job__title" style={{height: "100px", fontSize:"24px",color: "white !important", fontWeight:"500"}}>
+                      <div class="job__title" style={{height: "110px", fontSize:"23px",color: "white !important", fontWeight:"500"}}>
                         {work.company} <br/>
-                        <span style={{fontSize:"16px", opacity:".7", transition: "opacity .3s"}}> {work.position} </span>
+                        <span style={{fontSize:"16px",}}> {work.position} </span>
                       </div>
                     </div>
                     <p class="job-description">
                     {work.summary} <br/> <br/>
-                    {work.highlights && "Highlights"} <br/>
-                      {work.highlights}
+                    {work?.highlights && "Highlights"} <br/>
+                      {work?.highlights}
                     </p>
                     </div>
                   </SwiperSlide>

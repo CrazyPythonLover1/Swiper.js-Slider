@@ -14,10 +14,10 @@ const Header = ({color,fontColor, bgColor}) => {
         <div id="header"  >
             <div className="">
                 <div className="text-center pb-5" >
-                    <h1 className="pt-4 pb-3 header-title" style={{color:fontColor, fontWeight:"900", fontSize:" 2em"}} >
+                    <h1 className="pt-4 pb-3 header-title" style={{color:"#fff", fontWeight:"900", fontSize:" 2em",fontFamily:"'Quicksand', sans-serif"}} >
                         {resumeData.basics.name}
                     </h1>
-                    <div className="header-text" style={{color:color, fontFamily:"'Nunito Sans', sans-serif"}}>
+                    <div className="header-text" style={{color:"#fff", fontFamily:"'Quicksand', sans-serif"}}>
                         <Typical
                             loop={Infinity}
                             wrapper="p"

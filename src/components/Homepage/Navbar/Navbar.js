@@ -12,45 +12,45 @@ const Navbar = ({color, fontColor}) => {
                     <ul className="nav-container " onClick={(e) => e.stopPropagation() }>
                         <li className="nav-item">
                             <a className="nav-link " href="https://wa.me/+16463732266">
-                                <span style={{color:color}}> US </span>  <FontAwesomeIcon style={{color:fontColor}} icon={faWhatsapp} />
+                                <span style={{color:"#fff"}}> US </span>  <FontAwesomeIcon style={{color:"#fff"}} icon={faWhatsapp} />
                             </a>
                         </li>
                         <li className="nav-item ">
                             <a className="nav-link " href="tel:0502209852">
-                            <span style={{color:color}}> IL </span> <FontAwesomeIcon style={{color:fontColor}} icon={faPhone} /> 
+                            <span style={{color:"#fff"}}> IL </span> <FontAwesomeIcon style={{color:"#fff"}} icon={faPhone} /> 
                             </a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link " href="tel:+16463732266"> 
-                                <span style={{color:color}}> US </span> <FontAwesomeIcon style={{color:fontColor}} icon={faPhone} /> 
+                                <span style={{color:"#fff"}}> US </span> <FontAwesomeIcon style={{color:"#fff"}} icon={faPhone} /> 
                             </a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="https://www.linkedin.com/in/anatoly-raklyar-06034069/">  
-                                <FontAwesomeIcon style={{color:fontColor}} icon={faLinkedinIn} /> 
+                                <FontAwesomeIcon style={{color:"#fff"}} icon={faLinkedinIn} /> 
                             </a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="mailto:traklyar@yahoo.com">  
-                                <FontAwesomeIcon style={{color:fontColor}} icon={faEnvelope} /> 
+                                <FontAwesomeIcon style={{color:"#fff"}} icon={faEnvelope} /> 
                             </a>
                         </li>
                         <div className="navbar-wraper" onClick={() => setActive(!active)}>
                             { !active ?<li className="nav-item">
                                 <div className="nav-link"  href="">  
-                                    <FontAwesomeIcon style={{color:fontColor,fontSize:"20px", cursor: "pointer"}} icon={faBars} /> 
+                                    <FontAwesomeIcon style={{color:"#fff",fontSize:"20px", cursor: "pointer"}} icon={faBars} /> 
                                 </div>
                             </li>
                             :<div>
                             <li className="nav-item">
                                 <div className="nav-link"  href="">
-                                <FontAwesomeIcon style={{color:fontColor,fontSize:"20px", cursor: "pointer"}} icon={faTimes} /> 
+                                <FontAwesomeIcon style={{color:"#fff",fontSize:"20px", cursor: "pointer"}} icon={faTimes} /> 
                                 </div>
                                 
                             </li>
                                 <li className="nav-item"  style={{display: "inline-block"}}>
                                     <a className="nav-link" href="">  
-                                        <FontAwesomeIcon style={{color:fontColor,fontSize:"20px"}} icon={faGithub} /> 
+                                        <FontAwesomeIcon style={{color:"#fff",fontSize:"20px"}} icon={faGithub} /> 
                                     </a>
                                 </li>
                             </div>}

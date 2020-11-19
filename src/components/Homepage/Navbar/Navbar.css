@@ -2,9 +2,9 @@
 
 .nav-container{
     display: flex !important;
-    justify-content: space-evenly;
+    justify-content: center;
     list-style: none;
-    margin: 0 8%;
+    margin: 0 3%;
     padding-top: 7px;
     padding-left: 0;
 }
@@ -14,7 +14,7 @@
 }
 
 .nav-link{
-    color: #432e30 !important;
+    color: #fff !important;
     padding: 0 !important;
 }
 
@@ -23,13 +23,13 @@
 }
 
 .nav-link .svg-inline--fa:hover {
-    color: #98C24D !important;
+    color:  #fff!important;
 }
 
 .nav-link .fa-bars:hover{   
-    color: #432e30 !important;
+    color: #fff !important;
 }
 
 .nav-link .fa-times:hover{   
-    color: #432e30 !important;
+    color: #fff !important;
 }
