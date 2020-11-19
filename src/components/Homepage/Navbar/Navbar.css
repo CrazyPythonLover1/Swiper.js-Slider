@@ -2,9 +2,9 @@
 
 .nav-container{
     display: flex !important;
-    justify-content: center;
+    justify-content: space-evenly;
     list-style: none;
-    margin: 0 3%;
+    margin: 0 8%;
     padding-top: 7px;
     padding-left: 0;
 }
@@ -15,7 +15,7 @@
 
 .nav-link{
     color: #432e30 !important;
-    padding: 0 10px !important;
+    padding: 0 !important;
 }
 
 .nav-link span{
