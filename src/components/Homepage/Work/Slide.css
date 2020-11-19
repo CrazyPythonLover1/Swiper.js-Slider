@@ -25,9 +25,10 @@
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 6px 26px 6px rgba(0,0,0,0.25);
-    opacity: 1;
-    transition: all .9s;
+    opacity: 0;
+    transition: all .3s;
     z-index: -1;
+    left: -30px !important;
 
 }
 
@@ -38,9 +39,16 @@
     overflow-y: hidden !important;
     
 }
-.swiper-slide:hover{
-  color: #000;
+.swiper-slide:hover .month{
+  color: #000 !important;
+  border-bottom: 2px solid #000;
+  padding-bottom: 8px;
 }
+
+.swiper-slide:hover .job__title{
+  color: #000 !important;
+}
+
 
 
 
@@ -60,6 +68,7 @@
     overflow-y: scroll;
     padding: 10px;
     font-size: 13px;
+    opacity: .7;
 }
 
 

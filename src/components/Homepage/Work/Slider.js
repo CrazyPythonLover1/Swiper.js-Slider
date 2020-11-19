@@ -24,9 +24,14 @@ const Slider = ({works}) => {
 
 const mouseHover = (e) => {
   const {width, left, top, bottom} = e.target.parentNode.getBoundingClientRect()
-  setCssProperty({width, left, top, bottom})
+  setCssProperty({width, left, top, bottom, opacity:1})
 
   setIsShown(true)
+}
+
+const mouseLeave = (e) => {
+  setIsShown(false)
+  setCssProperty({opacity:0})
 }
 
 
@@ -45,10 +50,10 @@ const mouseHover = (e) => {
 
 useEffect( () => {
   if(window.innerWidth > 1300 ){
-    if(cssProperty.left<420){
+    if(cssProperty.left<422){
         setCssProperty({left:130})
         console.log(cssProperty.left)
-    } else if(  cssProperty.left < 788){
+    } else if(  cssProperty.left < 800){
         setCssProperty({ left:500})
         console.log(cssProperty.left)
     } else if(  cssProperty.left < 1164){
@@ -80,7 +85,13 @@ console.log(cssProperty.left)
         <div>
           {/* (100<cssProperty.left<420 && "100px") || (cssProperty.left<788 && "460px") ||  (790<cssProperty.left<1154 && "825px") */}
          {/* 100<cssProperty.left<420 && "90" || 400<cssProperty.left<788 && "460" ||  790<cssProperty.left<1154 && "825" || cssProperty.left */}
-         {true && <div className="job-bg" style={{transform:`translateX(${cssProperty.left-40}px)`, width:`${cssProperty.width+30}px`, height:`${cssProperty.bottom-cssProperty.top}px`, minHeight:"500px", minWidth:"300px"}}>  </div> }
+          { <div className="job-bg" style={{transform:`translateX(${cssProperty.left}px)`, 
+              width:`${cssProperty.width+30}px`, height:`${cssProperty.bottom-cssProperty.top}px`, 
+              minHeight:"500px", minWidth:"300px", opacity:`${cssProperty.opacity}`, 
+              }}
+            >  
+            </div> 
+          }
             <Swiper
             id="main"
             tag="section"
@@ -124,7 +135,7 @@ console.log(cssProperty.left)
                   >  
                      
                     {/* <div className="job-bg" style={{opacity:0, transform:`translateX(${left}px)`}}></div> */}
-                    <div  onMouseEnter={(e)=> mouseHover(e)}  onMouseLeave={() => setIsShown(false)}>
+                    <div  onMouseEnter={(e)=> mouseHover(e)}  onMouseLeave={() => mouseLeave()}>
                     <div className="job-info" style={{marginBottom:"5px", padding: "0 10px"}}
                     ref={el => {
                       // el can be null - see https://reactjs.org/docs/refs-and-the-dom.html#caveats-with-callback-refs
@@ -137,16 +148,16 @@ console.log(cssProperty.left)
                       <div className="job-dates">
                         <div class="job-date" style={{borderBottom:"2px solid ", display:"inline-block",height:"78px", marginBottom:"20px", paddingBottom:"10px"}}>
                             {work?.startDate && <span className="date" style={{color: "#a5c261", fontSize:"32px"}}> {work?.startDate} </span>} <br/>
-                            {work?.month && <span className="date" style={{color: "#fff", fontSize:"1rem"}}> {work?.month} </span>}
+                            {work?.month && <span className="month" style={{color: "#fff", fontSize:"1rem"}}> {work?.month} </span>}
                         </div>
                         <div class="job-date" style={{borderBottom:"2px solid ", display:"inline-block",height:"78px", marginBottom:"20px", paddingBottom:"10px"}}>
                             {work?.endDate && <span className="date" style={{color: "#a5c261", fontSize:"32px"}}> {work?.endDate} </span>} <br/>
-                            {work?.endMonth && <span className="date" style={{color: "#fff", fontSize:"1rem"}}> {work?.endMonth} </span>}
+                            {work?.endMonth && <span className="month" style={{color: "#fff", fontSize:"1rem"}}> {work?.endMonth} </span>}
                         </div>
                       </div>
-                      <div class="news__title" style={{height: "100px", fontSize:"24px"}}>
+                      <div class="job__title" style={{height: "100px", fontSize:"24px",color: "white !important", fontWeight:"500"}}>
                         {work.company} <br/>
-                        {work.position}
+                        <span style={{fontSize:"16px", opacity:".7", transition: "opacity .3s"}}> {work.position} </span>
                       </div>
                     </div>
                     <p class="job-description">
