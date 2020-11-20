@@ -9,6 +9,8 @@ const Slider = ({works}) => {
 
   const [isShown, setIsShown] = useState(false)
 
+  const [ sliderClassName, setSliderClassName] = useState(false);
+
 
   const [cssProperty, setCssProperty] = useState({});
 
@@ -82,6 +84,8 @@ useEffect( () => {
 }, [cssProperty.left] )
 
 
+console.log(sliderClassName);
+
     return (
         <div>
           
@@ -100,8 +104,9 @@ useEffect( () => {
             wrapperTag="ul"
             spaceBetween={10}
             slidesPerView={1}
-            onSlideChange={(e) => "" }
-            onSwiper={(swiper)=> console.log()}
+            onSlideChange={(e) => mouseLeave() }
+            onSwiper={(swiper)=> console.log(swiper)}
+            // onTouchMove={(swiper,event)=> mouseHover(event)}
             navigation
             loop="true"
             breakpoints={{
@@ -138,7 +143,7 @@ useEffect( () => {
                   >  
                      
                     {/* <div className="job-bg" style={{opacity:0, transform:`translateX(${left}px)`}}></div> */}
-                    <div  onMouseEnter={(e)=> mouseHover(e)}  onMouseLeave={() => mouseLeave()}   onMouseMove={(e)=>mouseHover(e)}>
+                    <div  onMouseEnter={(e)=> mouseHover(e)}  onMouseLeave={() => mouseLeave()}    >
                     <div className="job-info" style={{marginBottom:"5px", padding: "0 10px"}}
                     ref={el => {
                       // el can be null - see https://reactjs.org/docs/refs-and-the-dom.html#caveats-with-callback-refs
