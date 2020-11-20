@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Swiper.js-Slider/static/css/main.aface9db.chunk.css",
-    "main.js": "/Swiper.js-Slider/static/js/main.a74ce32c.chunk.js",
-    "main.js.map": "/Swiper.js-Slider/static/js/main.a74ce32c.chunk.js.map",
-    "runtime-main.js": "/Swiper.js-Slider/static/js/runtime-main.61085da6.js",
-    "runtime-main.js.map": "/Swiper.js-Slider/static/js/runtime-main.61085da6.js.map",
+    "main.css": "/Swiper.js-Slider/static/css/main.f9c60872.chunk.css",
+    "main.js": "/Swiper.js-Slider/static/js/main.d74469fe.chunk.js",
+    "main.js.map": "/Swiper.js-Slider/static/js/main.d74469fe.chunk.js.map",
+    "runtime-main.js": "/Swiper.js-Slider/static/js/runtime-main.b19f5b34.js",
+    "runtime-main.js.map": "/Swiper.js-Slider/static/js/runtime-main.b19f5b34.js.map",
     "static/css/2.570f5178.chunk.css": "/Swiper.js-Slider/static/css/2.570f5178.chunk.css",
-    "static/js/2.74c28c70.chunk.js": "/Swiper.js-Slider/static/js/2.74c28c70.chunk.js",
-    "static/js/2.74c28c70.chunk.js.map": "/Swiper.js-Slider/static/js/2.74c28c70.chunk.js.map",
-    "static/js/3.3b3340b9.chunk.js": "/Swiper.js-Slider/static/js/3.3b3340b9.chunk.js",
-    "static/js/3.3b3340b9.chunk.js.map": "/Swiper.js-Slider/static/js/3.3b3340b9.chunk.js.map",
+    "static/js/2.5848cf0e.chunk.js": "/Swiper.js-Slider/static/js/2.5848cf0e.chunk.js",
+    "static/js/2.5848cf0e.chunk.js.map": "/Swiper.js-Slider/static/js/2.5848cf0e.chunk.js.map",
+    "static/js/3.d86cb7ba.chunk.js": "/Swiper.js-Slider/static/js/3.d86cb7ba.chunk.js",
+    "static/js/3.d86cb7ba.chunk.js.map": "/Swiper.js-Slider/static/js/3.d86cb7ba.chunk.js.map",
     "index.html": "/Swiper.js-Slider/index.html",
     "static/css/2.570f5178.chunk.css.map": "/Swiper.js-Slider/static/css/2.570f5178.chunk.css.map",
-    "static/css/main.aface9db.chunk.css.map": "/Swiper.js-Slider/static/css/main.aface9db.chunk.css.map",
-    "static/js/2.74c28c70.chunk.js.LICENSE.txt": "/Swiper.js-Slider/static/js/2.74c28c70.chunk.js.LICENSE.txt",
+    "static/css/main.f9c60872.chunk.css.map": "/Swiper.js-Slider/static/css/main.f9c60872.chunk.css.map",
+    "static/js/2.5848cf0e.chunk.js.LICENSE.txt": "/Swiper.js-Slider/static/js/2.5848cf0e.chunk.js.LICENSE.txt",
     "static/media/audio1.mp3": "/Swiper.js-Slider/static/media/audio1.db994d6f.mp3",
     "static/media/audio2.mp3": "/Swiper.js-Slider/static/media/audio2.409c464c.mp3",
     "static/media/audio3.mp3": "/Swiper.js-Slider/static/media/audio3.851025ba.mp3",
@@ -24,10 +24,10 @@
     "static/media/audio8.mp3": "/Swiper.js-Slider/static/media/audio8.fa02a8a6.mp3"
   },
   "entrypoints": [
-    "static/js/runtime-main.61085da6.js",
+    "static/js/runtime-main.b19f5b34.js",
     "static/css/2.570f5178.chunk.css",
-    "static/js/2.74c28c70.chunk.js",
-    "static/css/main.aface9db.chunk.css",
-    "static/js/main.a74ce32c.chunk.js"
+    "static/js/2.5848cf0e.chunk.js",
+    "static/css/main.f9c60872.chunk.css",
+    "static/js/main.d74469fe.chunk.js"
   ]
 }
