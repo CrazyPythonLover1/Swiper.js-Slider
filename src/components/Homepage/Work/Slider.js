@@ -1,12 +1,8 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import './Slider.css'
-// 
 import { Swiper, SwiperSlide} from 'swiper/react';
 import SwiperCore, {Navigation, Pagination} from 'swiper';
 import 'swiper/swiper-bundle.css';
-// import 'swiper/swiper.scss'
-
-// import Swiper from 'react-id-swiper';
 
 SwiperCore.use([Navigation, Pagination])
 const Slider = ({works}) => {
@@ -39,7 +35,6 @@ const mouseLeave = (e) => {
 //   const {width} = ref.current.getBoundingClientRect();
 //   console.log(width);
 // }
-
 
 //width:cssProperty.width, left:cssProperty.left, top:cssProperty.top, bottom:cssProperty.bottom,
 
@@ -106,7 +101,7 @@ useEffect( () => {
             spaceBetween={10}
             slidesPerView={1}
             onSlideChange={(e) => "" }
-            onSwiper={(swiper)=> console.log(swiper)}
+            onSwiper={(swiper)=> console.log()}
             navigation
             loop="true"
             breakpoints={{
@@ -143,7 +138,7 @@ useEffect( () => {
                   >  
                      
                     {/* <div className="job-bg" style={{opacity:0, transform:`translateX(${left}px)`}}></div> */}
-                    <div  onMouseEnter={(e)=> mouseHover(e)}  onMouseLeave={() => mouseLeave()}>
+                    <div  onMouseEnter={(e)=> mouseHover(e)}  onMouseLeave={() => mouseLeave()}   onMouseMove={(e)=>mouseHover(e)}>
                     <div className="job-info" style={{marginBottom:"5px", padding: "0 10px"}}
                     ref={el => {
                       // el can be null - see https://reactjs.org/docs/refs-and-the-dom.html#caveats-with-callback-refs
@@ -166,7 +161,7 @@ useEffect( () => {
                         </div>
                       </div>
 
-                      <div class="job__title" style={{height: "110px", fontSize:"23px",color: "white !important", fontWeight:"500"}}>
+                      <div class="job__title" style={{height: "110px", fontSize:"23px",color: "white !important", fontWeight:"500", transition:"all .5s"}}>
                         {work.company} <br/>
                         <span style={{fontSize:"16px",}}> {work.position} </span>
                       </div>
