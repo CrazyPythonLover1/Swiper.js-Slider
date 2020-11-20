@@ -16,6 +16,8 @@
   .nav-container{
     justify-content: space-between !important;
     margin: 0 1%;
+    padding-top: 0 !important;
+    padding-bottom: 7px;
 }
 
 

@@ -141,7 +141,8 @@
         "position": "Technical Project Leader",
         "summary": "Developed large scale Business Intelligence solution for e-commerce strategy formulation and web site personalization. Project resulted in substantial growth in global installations and improvement in functionality and scalability across all products.",
         "bgColor":"#9b59b6",
-        "color": "white"
+        "color": "white",
+        "highlights":" "
         
       },
       { "id": 7,
@@ -150,14 +151,17 @@
         "summary": "Developed enterprise-wide data warehouse environment for marketing, CRM, and data mining. Project grew into corporate data warehouse environment storing information on all B2B relationships resulting in significant improvement in operations efficiency.",
         "bgColor":"",
         "color": "white",
-        "fontColor":"#432e30"
+        "fontColor":"#432e30",
+        "highlights":" "
         
       },
       { "id": 8,
         "company": "Metropolitan Life Insurance Company ",
         "position": "Actuarial Student",
+        "summary": " ",
         "bgColor":"",
-        "color": "white"
+        "color": "white",
+        "highlights":" "
       }
     ],
     "education": [

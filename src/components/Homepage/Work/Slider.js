@@ -172,9 +172,9 @@ useEffect( () => {
                       </div>
                     </div>
                     <p class="job-description">
-                    {work.summary} <br/> <br/>
-                    {work?.highlights && "Highlights"} <br/>
-                      {work?.highlights}
+                    {!isShown && work.summary?.toString().length > 300 ? work.summary?.toString().substr(0,275)+"...":work.summary} <br/> <br/>
+                    {work?.highlights?.length > 1 && "Highlights"} <br/>
+                      {!isShown && work?.highlights?.toString().length > 2?  work?.highlights?.toString().substr(0,80) + "..." : work.highlights}
                     </p>
                     </div>
                   </SwiperSlide>
