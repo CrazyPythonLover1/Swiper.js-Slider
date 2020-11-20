@@ -2,13 +2,13 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './Slider.css'
 // 
 import { Swiper, SwiperSlide} from 'swiper/react';
-// import SwiperCore, {Navigation, Pagination} from 'swiper';
+import SwiperCore, {Navigation, Pagination} from 'swiper';
 import 'swiper/swiper-bundle.css';
 // import 'swiper/swiper.scss'
 
 // import Swiper from 'react-id-swiper';
 
-// SwiperCore.use([Navigation, Pagination])
+SwiperCore.use([Navigation, Pagination])
 const Slider = ({works}) => {
 
   const [isShown, setIsShown] = useState(false)
@@ -107,6 +107,7 @@ useEffect( () => {
             slidesPerView={1}
             onSlideChange={(e) => "" }
             onSwiper={(swiper)=> console.log(swiper)}
+            navigation
             loop="true"
             breakpoints={{
               575:{

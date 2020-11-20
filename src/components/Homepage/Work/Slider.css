@@ -90,6 +90,10 @@
 }
 
 
+.swiper-button-prev::after, .swiper-button-next::after{
+  color: #ccc;
+}
+
 
 .job-description::-webkit-scrollbar , .job-summary::-webkit-scrollbar {
     width: 1px;
