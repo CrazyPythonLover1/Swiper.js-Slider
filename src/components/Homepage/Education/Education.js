@@ -16,10 +16,10 @@ const Education = ({education, color, fontColor}) => {
     }
     return (
         <div id="education">
-            <h2 className="section-title" style={{color:fontColor}}> Education </h2>
+            <h2 className="section-title" style={{color:"#fff"}}> Education </h2>
             <ul >
-                <li onClick={ (e)=> handleMba(e) }  className={edu?.studyType?.toLowerCase() === "mba" && "mba" } style={{color:color}}> mba </li>
-                <li onClick={ (e)=> handleBs(e)} className={edu?.studyType?.toLowerCase() === "bs"  && 'bs'}  style={{color:color}} > bs </li>
+                <li onClick={ (e)=> handleMba(e) }  className={edu?.studyType?.toLowerCase() === "mba" && "mba" } style={{color:"#fff"}}> mba </li>
+                <li onClick={ (e)=> handleBs(e)} className={edu?.studyType?.toLowerCase() === "bs"  && 'bs'}  style={{color:"#fff"}} > bs </li>
             </ul>
             <div className="edu-info">
                 <span> Institution : {edu.institution} </span>

@@ -27,6 +27,7 @@ const mouseHover = (e) => {
   setCssProperty({width, left, top, bottom, opacity:1})
 
   setIsShown(true)
+  console.log(left);
 }
 
 const mouseLeave = (e) => {
@@ -66,23 +67,50 @@ useEffect( () => {
   }
   
   if(window.innerWidth < 650){
-    if(cssProperty.left<40){
-      setCssProperty({left:39})
-      console.log(cssProperty.left)
-  } else if( cssProperty.left < 65){
-      setCssProperty({ left:65})
-      console.log(cssProperty.left)
-  } else if( cssProperty.left < 110){
-    setCssProperty({ left:90})
+
+    
+    if (cssProperty.left<=15){
+      setCssProperty({left:15})
+  } else if(cssProperty.left<=30){
+    setCssProperty({left:30})
     console.log(cssProperty.left)
-} 
+  } else if(  cssProperty.left <40){
+      setCssProperty({ left:40})
+      console.log(cssProperty.left)
+  } else if(  cssProperty.left < 55){
+      setCssProperty({ left:50})
+      console.log(cssProperty.left)
+  } else if( cssProperty.left<60){
+      setCssProperty({left:60})
+      console.log(cssProperty.left)
+  }
+//     if(cssProperty.left > 30 ){
+//       setCssProperty({left:30})
+//       console.log(cssProperty.left)
+    
+//   } else if( cssProperty.left < 65){
+//       setCssProperty({ left:65})
+//       console.log(cssProperty.left)
+//   } else if( cssProperty.left < 110){
+//     setCssProperty({ left:90})
+//     console.log(cssProperty.left)
+// } 
+  }
+
+  if(window.innerWidth <= 320 ) {
+    if (cssProperty.left<=15){
+      setCssProperty({left:15})
+    } else if (cssProperty.left <=30){
+      setCssProperty({left:25})
+    }
   }
   
 }, [cssProperty.left] )
 
-console.log(cssProperty.left)
+
     return (
         <div>
+          
           {/* (100<cssProperty.left<420 && "100px") || (cssProperty.left<788 && "460px") ||  (790<cssProperty.left<1154 && "825px") */}
          {/* 100<cssProperty.left<420 && "90" || 400<cssProperty.left<788 && "460" ||  790<cssProperty.left<1154 && "825" || cssProperty.left */}
           { <div className={`job-bg ${cssProperty.activeClass}`} style={{transform:`translateX(${cssProperty.left}px)`, 
@@ -98,8 +126,8 @@ console.log(cssProperty.left)
             wrapperTag="ul"
             spaceBetween={10}
             slidesPerView={1}
-            onSlideChange={() =>  setIsShown(!isShown)  }
-            onSwiper={(swiper)=> console.log()}
+            onSlideChange={(e) => "" }
+            onSwiper={(swiper)=> console.log(swiper)}
             loop="true"
             breakpoints={{
               575:{
@@ -146,15 +174,18 @@ console.log(cssProperty.left)
                     
                     >
                       <div className="job-dates">
-                        <div class="job-date" style={{borderBottom:"2px solid ", display:"inline-block",height:"78px", marginBottom:"20px", paddingBottom:"10px"}}>
+
+                        <div class="job-date" style={{borderBottom:"2px solid #e2e2e2", display:"inline-block",height:"48px", marginBottom:"20px" }}>
+                            {work?.month && <span className="month" style={{color: "#fff", fontSize:"1rem", opacity:".7"}}> {work?.month} </span>}
                             {work?.startDate && <span className="date" style={{color: "#a5c261", fontSize:"32px"}}> {work?.startDate} </span>} <br/>
-                            {work?.month && <span className="month" style={{color: "#fff", fontSize:"1rem"}}> {work?.month} </span>}
                         </div>
-                        <div class="job-date" style={{borderBottom:"2px solid ", display:"inline-block",height:"78px", marginBottom:"20px", paddingBottom:"10px"}}>
+
+                        <div class="job-date" style={{borderBottom:"2px solid #e2e2e2", display:"inline-block",height:"48px", marginBottom:"20px" }}>
+                            {work?.endMonth && <span className="month" style={{color: "#fff", fontSize:"1rem", opacity: ".7"}}> {work?.endMonth} </span>}
                             {work?.endDate && <span className="date" style={{color: "#a5c261", fontSize:"32px"}}> {work?.endDate} </span>} <br/>
-                            {work?.endMonth && <span className="month" style={{color: "#fff", fontSize:"1rem"}}> {work?.endMonth} </span>}
                         </div>
                       </div>
+
                       <div class="job__title" style={{height: "110px", fontSize:"23px",color: "white !important", fontWeight:"500"}}>
                         {work.company} <br/>
                         <span style={{fontSize:"16px",}}> {work.position} </span>

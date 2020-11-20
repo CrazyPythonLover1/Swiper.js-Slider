@@ -17,6 +17,7 @@
     transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg);
     background-color: transparent;
     padding: 0 20px;
+    cursor: pointer;
 }
 
 .job-bg{
@@ -29,7 +30,6 @@
     transition: all .3s;
     z-index: -1;
     left: -30px !important;
-
 }
 
 .activeClass {
@@ -45,9 +45,13 @@
     
 }
 .swiper-slide:hover .month{
-  color: #000 !important;
-  border-bottom: 2px solid #000;
-  padding-bottom: 8px;
+  color: #222222 !important;
+  transition-delay: .1s;
+  
+}
+
+.swiper-slide:hover .job-date {
+  border-bottom: 2px solid #858585 !important;
 }
 
 .swiper-slide:hover .job__title{
@@ -62,6 +66,13 @@
   justify-content:space-between;
 }
 
+.swiper-wrapper .job-date{
+  display: flex;
+}
+
+.job-date .month{
+  font-family: 'Quicksand', sans-serif;
+}
 
 .job-description{
     border-radius: 10px;
@@ -72,7 +83,10 @@
     transform-origin: 0% 0%;
     overflow: hidden;
     padding:10px;
-    font-size: 13px;
+    font-size: 15px;
+    line-height:1.6em;
+    font-family: 'Quicksand', sans-serif;
+    
 }
 
 
@@ -108,11 +122,7 @@
         margin: auto;
       }
       
-
-    /* .swiper-wrapper{
-        margin: auto ;
-    }
-    .swiper-slide{
+    /* .swiper-slide{
         margin: auto;
         width: 100% !important;
     } */

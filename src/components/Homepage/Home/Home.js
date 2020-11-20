@@ -39,7 +39,7 @@ const Home = () => {
     const [cssProperty, setCssProperty] = useState({});
     console.log(cssProperty)
     return (
-        <div className="background"  id="home" style={{ background: siteInfo.bgColor, minHeight: "100vh" }} onClick={() => {
+        <div id="home" style={{ background: siteInfo.bgColor, minHeight: "100vh" }} onClick={() => {
             // handleClick()
             handleWorkBgcolor()}}>
 
