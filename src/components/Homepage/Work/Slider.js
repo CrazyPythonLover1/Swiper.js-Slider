@@ -12,14 +12,9 @@ import 'swiper/swiper-bundle.css';
 const Slider = ({works}) => {
 
   const [isShown, setIsShown] = useState(false)
-  
-  const [right, setRight] = useState()
 
 
   const [cssProperty, setCssProperty] = useState({});
-
-
-
 
 
 const mouseHover = (e) => {
@@ -27,7 +22,6 @@ const mouseHover = (e) => {
   setCssProperty({width, left, top, bottom, opacity:1})
 
   setIsShown(true)
-  console.log(left);
 }
 
 const mouseLeave = (e) => {
@@ -53,16 +47,12 @@ useEffect( () => {
   if(window.innerWidth > 1300 ){
     if(cssProperty.left<422){
         setCssProperty({left:130})
-        console.log(cssProperty.left)
     } else if(  cssProperty.left < 800){
         setCssProperty({ left:500})
-        console.log(cssProperty.left)
     } else if(  cssProperty.left < 1164){
         setCssProperty({ left:870})
-        console.log(cssProperty.left)
     } else if( cssProperty.left<100){
         setCssProperty({left:90})
-        console.log(cssProperty.left)
     }
   }
   
@@ -73,26 +63,15 @@ useEffect( () => {
       setCssProperty({left:15})
   } else if(cssProperty.left<=30){
     setCssProperty({left:30})
-    console.log(cssProperty.left)
-  } else if(  cssProperty.left <40){
-      setCssProperty({ left:40})
-      console.log(cssProperty.left)
-  } else if(  cssProperty.left < 55){
-      setCssProperty({ left:50})
-      console.log(cssProperty.left)
-  } else if( cssProperty.left<60){
-      setCssProperty({left:60})
-      console.log(cssProperty.left)
-  }
-//     if(cssProperty.left > 30 ){
-//       setCssProperty({left:30})
-//       console.log(cssProperty.left)
-    
-//   } else if( cssProperty.left < 65){
-//       setCssProperty({ left:65})
-//       console.log(cssProperty.left)
-//   } else if( cssProperty.left < 110){
-//     setCssProperty({ left:90})
+  } 
+//   else if(  cssProperty.left <40){
+//     setCssProperty({ left:40})
+//     console.log(cssProperty.left)
+// } else if(  cssProperty.left < 55){
+//     setCssProperty({ left:50})
+//     console.log(cssProperty.left)
+// } else if( cssProperty.left<60){
+//     setCssProperty({left:60})
 //     console.log(cssProperty.left)
 // } 
   }
