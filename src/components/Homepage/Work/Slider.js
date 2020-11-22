@@ -4,54 +4,30 @@ import { Swiper, SwiperSlide} from 'swiper/react';
 import SwiperCore, {Navigation, Pagination} from 'swiper';
 import 'swiper/swiper-bundle.css';
 import $ from 'jquery';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
+
+import audio1 from '../../../data/audio/audio1.mp3';
 
 SwiperCore.use([Navigation, Pagination])
-const Slider = ({works}) => {
+  const Slider = ({works}) => {
 
   const [isShown, setIsShown] = useState(false)
-
-  const [ sliderClassName, setSliderClassName] = useState(false);
 
 
   const [cssProperty, setCssProperty] = useState({});
 
 
-const mouseHover = (e) => {
-  const {width, left, top, bottom} = e.target.parentNode.getBoundingClientRect()
-  setCssProperty({width, left, top, bottom, opacity:1})
-  console.log(left)
-  setIsShown(true)
-}
+  const mouseHover = (e) => {
+    const {width, left, top, bottom} = e.target.parentNode.getBoundingClientRect()
+    setCssProperty({width, left, top, bottom, opacity:1})
+  }
 
-const mouseLeave = (e) => {
-  setIsShown(false)
-  setCssProperty({opacity:0, activeClass:"activeClass"})
-}
+  const mouseLeave = (e) => {
+    setIsShown(false)
+    setCssProperty({opacity:0, mouseLeaveClass:"mouseLeaveClass"})
+  }
 
-const middleSwiper = () => {
-  const swiper = document.getElementsByClassName("swiper-slide-active")[0];
-  console.log(swiper)
-
-  const {left} = document.getElementsByClassName("job-info")[0].parentNode.getBoundingClientRect();
-  // const left = middleSwiper.getBoundingClientRect();
-  console.log(left)
-  setCssProperty({ left:left})
-}
-
-
-
-
-// useEffect(() => {
-//   const {left} = ref.current.getBoundingClientRect();
-//   console.log(left);
-// }, [isShown])
-
-// const handleClick = () => {
-//   const {width} = ref.current.getBoundingClientRect();
-//   console.log(width);
-// }
-
-//width:cssProperty.width, left:cssProperty.left, top:cssProperty.top, bottom:cssProperty.bottom,
 
 useEffect( () => {
   if(window.innerWidth > 1300 ){
@@ -110,13 +86,50 @@ useEffect( () => {
 }, [cssProperty.left] )
 
 
+const audios = works.map(work => {
+  const audio= require(`../../../data/audio/audio${work.id}.mp3`)
+  const audioPath = audio["default"];
+  return new Audio(audioPath);
+})
+
+console.log(audios[0])
+
+const audio = require(`../../../data/audio/audio1.mp3`)
+
+console.log(audio)
+
+//  const audio = audioData.map(item => {
+//   return new Audio(item)
+// })
+
+
+const [active, setActive] = useState(false);
+if (works[0].id) {
+    const audioData = require(`../../../data/audio/audio${works[0].id}.mp3`)
+    var audioPath = audioData["default"];
+    console.log(audioData);
+    console.log(audioPath);
+}
+
+const handlePlayMusic = (audioNum) => {
+    audios[audioNum].play();
+    setActive(!active);
+    audios[audioNum].addEventListener('ended', () => setActive(false));
+}
+
+const handlePauseMusic = (audioNum) => {
+    audios[audioNum].pause();
+    setActive(!active);
+}
+
+
 
     return (
         <div>
           
           {/* (100<cssProperty.left<420 && "100px") || (cssProperty.left<788 && "460px") ||  (790<cssProperty.left<1154 && "825px") */}
          {/* 100<cssProperty.left<420 && "90" || 400<cssProperty.left<788 && "460" ||  790<cssProperty.left<1154 && "825" || cssProperty.left */}
-          { <div className={`job-bg ${cssProperty.activeClass}`} style={{transform:`translateX(${cssProperty.left-2}px)`, 
+          { <div className={`job-bg ${cssProperty.mouseLeaveClass}`} style={{transform:`translateX(${cssProperty.left-2}px)`, 
               width:`${cssProperty.width+30}px`, height:`${cssProperty.bottom-cssProperty.top}px`, 
               minHeight:"500px", minWidth:"300px", opacity:`${cssProperty.opacity}`
               }}
@@ -127,11 +140,9 @@ useEffect( () => {
             id="main"
             tag="section"
             wrapperTag="ul"
-            spaceBetween={10}
+            spaceBetween={20}
             slidesPerView={1}
-            onSlideChange={() => {
-              
-            } }
+            onSlideChange={() => mouseLeave() }
             onSwiper={(swiper)=> console.log(swiper)}
             // onTouchEnd={(swiper,event)=>{
             //    mouseHover(event)
@@ -195,35 +206,41 @@ useEffect( () => {
            
               {
                 works.map((work,index) => (
-                  <SwiperSlide key={`slide-${index}`} tag="li" style={{listStyle:"none"}} className="" 
-                  
-                  >  
+                  <SwiperSlide key={`slide-${index}`} tag="li" style={{listStyle:"none"}} className=""  >  
                      
                     {/* <div className="job-bg" style={{opacity:0, transform:`translateX(${left}px)`}}></div> */}
                     <div  onMouseEnter={(e)=> mouseHover(e)}  onMouseLeave={() => mouseLeave()}  className="job-item"  >
                     <div className="job-info" style={{marginBottom:"5px", margin: "0 10px"}}>
                       <div className="job-dates" >
 
-                        <div class="job-date" style={{ display:"inline-block",height:"48px", marginBottom:"20px" }}>
                           <span className="single-job-date">
-                          {work?.month && <span className="month" style={{color: "#fff", fontSize:"1rem", opacity:".7"}}  > {work?.month} </span>}
-                            {work?.startDate && <span className="date" style={{color: "#fff", fontSize:"32px"}}  > {work?.startDate} </span>} <br/>
+                            <span className="job-date-items">
+                              {work?.month && <span className="month" style={{color: "#fff", fontSize:"1rem", opacity:".7"}}  > {work?.month} </span>}
+                              {work?.startDate && <span className="date" style={{color: "#fff", fontSize:"32px"}}  > {work?.startDate} </span>} <br/>
+                            </span>
                           </span>
+                          
                            
-                        </div>
                         
-                        <div class="job-date" style={{ display:"inline-block",height:"48px", marginBottom:"20px" }}>
-                        <span className="single-job-date" style={{marginRight:"15px"}}>
-                        {work?.endMonth && <span className="month" style={{color: "#fff", fontSize:"1rem",  opacity: ".7"}} onMouseEnter={(e)=> e.stopPropagation()}> {work?.endMonth} </span>}
+                        <span className="end-single-job-date" >
+                          <span className="job-date-items" style={{marginRight:"15px"}}>
+                          {work?.endMonth && <span className="month" style={{color: "#fff", fontSize:"1rem",  opacity: ".7"}} onMouseEnter={(e)=> e.stopPropagation()}> {work?.endMonth} </span>}
                             {work?.endDate && <span className="date" style={{color: "#fff", fontSize:"32px", }} onMouseEnter={(e)=> e.stopPropagation()}> {work?.endDate} </span>} <br/>
                           </span>
+                        </span>
                             
-                        </div>
                       </div>
 
-                      <div class="job__title" style={{height: "110px", fontSize:"23px",color: "white !important", fontWeight:"500", transition:"all .5s"}}>
+                      <div class="job__title" style={{height: "110px", fontSize:"23px",color: "white !important", fontWeight:"500", transition:"all .5s", position:"relative"}}>
                         {work.company} <br/>
                         <span style={{fontSize:"16px",}}> {work.position} </span>
+
+                        {/* PLAY Music BUTTON  */}
+                        <div className="btn-play-pause" onClick={(e) => e.stopPropagation() } >
+                        {!active ? <FontAwesomeIcon onClick={() => handlePlayMusic(work.id)} icon={faPlay} />
+                            : <FontAwesomeIcon onClick={() => handlePauseMusic(work.id)} icon={faPause} />}
+                        </div>
+                        {/* PLAY Music BUTTON  */}
                       </div>
                     </div>
                     <p class="job-description">
