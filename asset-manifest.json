@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Swiper.js-Slider/static/css/main.ac51665c.chunk.css",
-    "main.js": "/Swiper.js-Slider/static/js/main.62b16142.chunk.js",
-    "main.js.map": "/Swiper.js-Slider/static/js/main.62b16142.chunk.js.map",
+    "main.css": "/Swiper.js-Slider/static/css/main.fc8478ac.chunk.css",
+    "main.js": "/Swiper.js-Slider/static/js/main.8bf7b055.chunk.js",
+    "main.js.map": "/Swiper.js-Slider/static/js/main.8bf7b055.chunk.js.map",
     "runtime-main.js": "/Swiper.js-Slider/static/js/runtime-main.7d66af20.js",
     "runtime-main.js.map": "/Swiper.js-Slider/static/js/runtime-main.7d66af20.js.map",
     "static/css/2.570f5178.chunk.css": "/Swiper.js-Slider/static/css/2.570f5178.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.db031ece.chunk.js.map": "/Swiper.js-Slider/static/js/3.db031ece.chunk.js.map",
     "index.html": "/Swiper.js-Slider/index.html",
     "static/css/2.570f5178.chunk.css.map": "/Swiper.js-Slider/static/css/2.570f5178.chunk.css.map",
-    "static/css/main.ac51665c.chunk.css.map": "/Swiper.js-Slider/static/css/main.ac51665c.chunk.css.map",
+    "static/css/main.fc8478ac.chunk.css.map": "/Swiper.js-Slider/static/css/main.fc8478ac.chunk.css.map",
     "static/js/2.021e617b.chunk.js.LICENSE.txt": "/Swiper.js-Slider/static/js/2.021e617b.chunk.js.LICENSE.txt",
     "static/media/audio1.mp3": "/Swiper.js-Slider/static/media/audio1.db994d6f.mp3",
     "static/media/audio2.mp3": "/Swiper.js-Slider/static/media/audio2.409c464c.mp3",
@@ -27,7 +27,7 @@
     "static/js/runtime-main.7d66af20.js",
     "static/css/2.570f5178.chunk.css",
     "static/js/2.021e617b.chunk.js",
-    "static/css/main.ac51665c.chunk.css",
-    "static/js/main.62b16142.chunk.js"
+    "static/css/main.fc8478ac.chunk.css",
+    "static/js/main.8bf7b055.chunk.js"
   ]
 }
