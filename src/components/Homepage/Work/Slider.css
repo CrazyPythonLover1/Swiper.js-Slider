@@ -102,7 +102,7 @@
 }
 
 .end-single-job-date {
-  right: 0;
+  right: 20px;
 }
 
 
@@ -194,11 +194,21 @@
         padding: 0 15px !important;
     }
 
+    .end-single-job-date {
+      right: 20px;
+    }
+
     .end-single-job-date .job-date-items{
-      position: relative;
-      right: 0;
+      position: absolute;
+      right: 20px;
+
     
     }
+
+    .swiper-button-prev::after, .swiper-button-next::after{
+      display: none;
+    }
+    
     
   }
 
@@ -230,11 +240,7 @@
         max-width: 340px !important;
       }
 
-      /* .end-single-job-date .job-date-items{
-        position: relative;
-        left: 65%;
       
-      } */
       
   }
 
@@ -257,6 +263,11 @@
   
   } */
   
+  .swiper-button-next::after{
+      right: -10px;
+   }
+
+
   
   }
   @media screen and (min-width: 1150px) {

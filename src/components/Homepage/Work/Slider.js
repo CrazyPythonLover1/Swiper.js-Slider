@@ -10,6 +10,7 @@ import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import audio1 from '../../../data/audio/audio1.mp3';
 
 SwiperCore.use([Navigation, Pagination])
+
   const Slider = ({works}) => {
 
   const [isShown, setIsShown] = useState(false)
@@ -21,6 +22,8 @@ SwiperCore.use([Navigation, Pagination])
   const mouseHover = (e) => {
     const {width, left, top, bottom} = e.target.parentNode.getBoundingClientRect()
     setCssProperty({width, left, top, bottom, opacity:1})
+    console.log(left)
+    setIsShown(!isShown);
   }
 
   const mouseLeave = (e) => {
@@ -30,14 +33,33 @@ SwiperCore.use([Navigation, Pagination])
 
 
 useEffect( () => {
-  if(window.innerWidth > 1300 ){
+
+  if( window.innerWidth > 1500 ){
+    if( cssProperty.left !== 500 && cssProperty.left<=642){
+        setCssProperty({left:130})
+        console.log(cssProperty.left !== 500)
+    } else if( cssProperty.left !== 870 && cssProperty.left<1030){
+        setCssProperty({ left:500})
+        console.log(cssProperty.left !== 870 )
+
+        console.log(cssProperty.left)
+
+    } else if(   cssProperty.left <= 1384){
+        setCssProperty({ left:870})
+        console.log(cssProperty.left)
+
+    } 
+  }
+
+  if(1499 > window.innerWidth > 1300 ){
     if(cssProperty.left<432){
         setCssProperty({left:130})
-    } else if(  cssProperty.left < 810){
+    } else if(  433 < cssProperty.left < 810){
         setCssProperty({ left:500})
-    } else if(  cssProperty.left < 1184){
+        console.log(cssProperty.left)
+    } else if( 820 <  cssProperty.left < 1184){
         setCssProperty({ left:870})
-    } else if( cssProperty.left<100){
+    } else if( 1185 < cssProperty.left<100){
         setCssProperty({left:90})
     }
   }
@@ -92,11 +114,11 @@ const audios = works.map(work => {
   return new Audio(audioPath);
 })
 
-console.log(audios[0])
 
-const audio = require(`../../../data/audio/audio1.mp3`)
 
-console.log(audio)
+
+
+
 
 //  const audio = audioData.map(item => {
 //   return new Audio(item)
@@ -104,12 +126,6 @@ console.log(audio)
 
 
 const [active, setActive] = useState(false);
-if (works[0].id) {
-    const audioData = require(`../../../data/audio/audio${works[0].id}.mp3`)
-    var audioPath = audioData["default"];
-    console.log(audioData);
-    console.log(audioPath);
-}
 
 const handlePlayMusic = (audioNum) => {
     audios[audioNum].play();
@@ -118,7 +134,7 @@ const handlePlayMusic = (audioNum) => {
 }
 
 const handlePauseMusic = (audioNum) => {
-    audios[audioNum].pause();
+    audios[audioNum]?.pause();
     setActive(!active);
 }
 
@@ -209,6 +225,8 @@ const handlePauseMusic = (audioNum) => {
                   <SwiperSlide key={`slide-${index}`} tag="li" style={{listStyle:"none"}} className=""  >  
                      
                     {/* <div className="job-bg" style={{opacity:0, transform:`translateX(${left}px)`}}></div> */}
+
+                    
                     <div  onMouseEnter={(e)=> mouseHover(e)}  onMouseLeave={() => mouseLeave()}  className="job-item"  >
                     <div className="job-info" style={{marginBottom:"5px", margin: "0 10px"}}>
                       <div className="job-dates" >
