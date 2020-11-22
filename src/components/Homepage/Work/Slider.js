@@ -143,7 +143,7 @@ const handlePauseMusic = (audioNum) => {
             spaceBetween={20}
             slidesPerView={1}
             onSlideChange={() => mouseLeave() }
-            onSwiper={(swiper)=> console.log(swiper)}
+            onSwiper={(swiper)=> console.log()}
             // onTouchEnd={(swiper,event)=>{
             //    mouseHover(event)
             //   console.log(event)}}
