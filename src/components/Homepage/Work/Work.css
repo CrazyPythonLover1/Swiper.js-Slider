@@ -109,9 +109,10 @@ audio  input[pseudo="-webkit-media-controls-play-button"] {
 
 #work .btn-play-pause{
     position: absolute;
-    top: 45%;
-    left: 50% !important;
-    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all .3s;
 }
 
 #work .btn-play-pause .svg-inline--fa{
