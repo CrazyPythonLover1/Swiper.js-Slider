@@ -15,11 +15,12 @@
 
 .nav-link{
     color: #fff !important;
-    padding: 0 !important;
+    padding: 0 20px;
 }
 
 .nav-link span{
     padding-right: 5px !important;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .nav-link .svg-inline--fa:hover {
