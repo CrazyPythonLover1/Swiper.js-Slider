@@ -64,6 +64,10 @@
   border-bottom: 2px solid #858585 !important;
   padding-bottom: 6px;
 }
+.swiper-slide:hover .end-single-job-date .job-date-items{
+  padding-bottom: 1px !important;
+
+}
 
 .swiper-slide:hover .job__title{
   color: #000 !important;
@@ -77,6 +81,11 @@
   color: #222222 !important;
 }
 
+.swiper-slide:hover .play-text{
+  display: block !important;
+  opacity: 1 !important;
+}
+
 
 
 
@@ -84,6 +93,7 @@
   transition: all .5s;
   position: relative;
   height: 70px;
+  background-color: transparent;
 }
 
 .single-job-date, .end-single-job-date{
@@ -91,10 +101,18 @@
   position: absolute;
 }
 
+.end-single-job-date {
+  right: 0;
+}
+
 
 .end-single-job-date .job-date-items{
-  position: relative;
-  left: 52%;
+  position: absolute;
+  height: auto;
+  /* left: 52%; */
+  right: 0 !important;
+  padding-bottom: 1px;
+  line-height: 1.4;
 
 }
 
@@ -178,9 +196,10 @@
 
     .end-single-job-date .job-date-items{
       position: relative;
-      left: 128%;
+      right: 0;
     
     }
+    
   }
 
 
@@ -190,11 +209,11 @@
         margin: auto;
       }
 
-      .end-single-job-date .job-date-items{
+      /* .end-single-job-date .job-date-items{
         position: relative;
         left: 123%;
       
-      }
+      } */
       
     /* .swiper-slide{
         margin: auto;
@@ -211,11 +230,11 @@
         max-width: 340px !important;
       }
 
-      .end-single-job-date .job-date-items{
+      /* .end-single-job-date .job-date-items{
         position: relative;
         left: 65%;
       
-      }
+      } */
       
   }
 
@@ -232,11 +251,11 @@
       padding: 0 0px 0 20px;
   }
 
-  .end-single-job-date .job-date-items{
+  /* .end-single-job-date .job-date-items{
     position: relative;
     left: 50%;
   
-  }
+  } */
   
   
   }
@@ -249,11 +268,16 @@
       min-width: 340px !important;
     }
 
-    .end-single-job-date .job-date-items{
+    /* .end-single-job-date .job-date-items{
       position: relative;
       left: 63%;
     
-    }
+    } */
+
+    .swiper-button-next::after{
+      right: -10px;
+   }
+   
 
     .job-description{
       margin: 30px 30px 0 0 !important;

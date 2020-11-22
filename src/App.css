@@ -25,6 +25,10 @@
     padding-right: .7rem;
     padding-left: .7rem;
   }
+  .nav-link{
+    padding: 0 !important;
+    font-size: 1.1rem !important;
+}
 
   #header .header-title{
     padding: 0 !important;
@@ -78,7 +82,7 @@
 }
 
   .button-group button:hover{
-    background-color: orange !important;
+    background-color: #a5c261 !important;
     color: #fff !important;
   }
 

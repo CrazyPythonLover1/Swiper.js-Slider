@@ -21,6 +21,11 @@
 .nav-link span{
     padding-right: 5px !important;
     font-family: 'Quicksand', sans-serif;
+    
+}
+
+.nav-link {
+    font-size: 23px;
 }
 
 .nav-link .svg-inline--fa:hover {

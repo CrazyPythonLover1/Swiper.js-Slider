@@ -239,6 +239,9 @@ const handlePauseMusic = (audioNum) => {
                         <div className="btn-play-pause" onClick={(e) => e.stopPropagation() } >
                         {!active ? <FontAwesomeIcon onClick={() => handlePlayMusic(work.id)} icon={faPlay} />
                             : <FontAwesomeIcon onClick={() => handlePauseMusic(work.id)} icon={faPause} />}
+                            <span className="play-text" style={{display: "inline-block", opacity:'0'}}>
+                              Play
+                            </span>
                         </div>
                         {/* PLAY Music BUTTON  */}
                       </div>
