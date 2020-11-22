@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Quicksand', sans-serif !important;
+  font-family: 'Quicksand', sans-serif ;
   overflow-x: hidden;
   
   -webkit-font-smoothing: antialiased;

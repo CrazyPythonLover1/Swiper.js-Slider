@@ -3,6 +3,7 @@ import './Slider.css'
 import { Swiper, SwiperSlide} from 'swiper/react';
 import SwiperCore, {Navigation, Pagination} from 'swiper';
 import 'swiper/swiper-bundle.css';
+import $ from 'jquery';
 
 SwiperCore.use([Navigation, Pagination])
 const Slider = ({works}) => {
@@ -18,7 +19,7 @@ const Slider = ({works}) => {
 const mouseHover = (e) => {
   const {width, left, top, bottom} = e.target.parentNode.getBoundingClientRect()
   setCssProperty({width, left, top, bottom, opacity:1})
-
+  console.log(left)
   setIsShown(true)
 }
 
@@ -26,6 +27,18 @@ const mouseLeave = (e) => {
   setIsShown(false)
   setCssProperty({opacity:0, activeClass:"activeClass"})
 }
+
+const middleSwiper = () => {
+  const swiper = document.getElementsByClassName("swiper-slide-active")[0];
+  console.log(swiper)
+
+  const {left} = document.getElementsByClassName("job-info")[0].parentNode.getBoundingClientRect();
+  // const left = middleSwiper.getBoundingClientRect();
+  console.log(left)
+  setCssProperty({ left:left})
+}
+
+
 
 
 // useEffect(() => {
@@ -42,16 +55,29 @@ const mouseLeave = (e) => {
 
 useEffect( () => {
   if(window.innerWidth > 1300 ){
-    if(cssProperty.left<422){
+    if(cssProperty.left<432){
         setCssProperty({left:130})
-    } else if(  cssProperty.left < 800){
+    } else if(  cssProperty.left < 810){
         setCssProperty({ left:500})
-    } else if(  cssProperty.left < 1164){
+    } else if(  cssProperty.left < 1184){
         setCssProperty({ left:870})
     } else if( cssProperty.left<100){
         setCssProperty({left:90})
     }
   }
+
+  // if(window.innerWidth > 992 ){
+  //   if(cssProperty.left<432){
+  //       setCssProperty({left:80})
+  //   } else if(  cssProperty.left < 810){
+  //       setCssProperty({ left:500})
+  //   } else if(  cssProperty.left < 1184){
+  //       setCssProperty({ left:870})
+  //   } else if( cssProperty.left<100){
+  //       setCssProperty({left:90})
+  //   }
+  // }
+  
   
   if(window.innerWidth < 650){
 
@@ -84,16 +110,15 @@ useEffect( () => {
 }, [cssProperty.left] )
 
 
-console.log(sliderClassName);
 
     return (
         <div>
           
           {/* (100<cssProperty.left<420 && "100px") || (cssProperty.left<788 && "460px") ||  (790<cssProperty.left<1154 && "825px") */}
          {/* 100<cssProperty.left<420 && "90" || 400<cssProperty.left<788 && "460" ||  790<cssProperty.left<1154 && "825" || cssProperty.left */}
-          { <div className={`job-bg ${cssProperty.activeClass}`} style={{transform:`translateX(${cssProperty.left}px)`, 
+          { <div className={`job-bg ${cssProperty.activeClass}`} style={{transform:`translateX(${cssProperty.left-2}px)`, 
               width:`${cssProperty.width+30}px`, height:`${cssProperty.bottom-cssProperty.top}px`, 
-              minHeight:"500px", minWidth:"300px", opacity:`${cssProperty.opacity}`, 
+              minHeight:"500px", minWidth:"300px", opacity:`${cssProperty.opacity}`
               }}
             >  
             </div> 
@@ -104,9 +129,20 @@ console.log(sliderClassName);
             wrapperTag="ul"
             spaceBetween={10}
             slidesPerView={1}
-            onSlideChange={(e) => mouseLeave() }
+            onSlideChange={() => {
+              
+            } }
             onSwiper={(swiper)=> console.log(swiper)}
-            // onTouchMove={(swiper,event)=> mouseHover(event)}
+            // onTouchEnd={(swiper,event)=>{
+            //    mouseHover(event)
+            //   console.log(event)}}
+            onTouchEnd={() => {
+              $('.job-item').removeClass('active');
+              $('.swiper-slide-active .job-item').addClass('active');
+            }}
+            onSlideChangeTransitionEnd={()=>{
+              // 
+            }}
             navigation
             loop="true"
             breakpoints={{
@@ -132,37 +168,56 @@ console.log(sliderClassName);
               }
               
             }}
+            on= {{
+              init: function () {
+                var activeItem = document.querySelector('.swiper-slide-active');
+    
+                var sliderItem = activeItem.querySelector('.job-item');
+    
+                $('.swiper-slide-active .job-item').addClass('active');
+    
+                var x = sliderItem.getBoundingClientRect().left;
+                var y = sliderItem.getBoundingClientRect().top;
+                var width = sliderItem.getBoundingClientRect().width;
+                var height = sliderItem.getBoundingClientRect().height;
+                var bg = document.querySelector('.job-bg');
+    
+                $('.job-bg').addClass('active');
+    
+                bg.style.width = width + 'px';
+                bg.style.height = height + 'px';
+                bg.style.transform = 'translateX(' + x + 'px ) translateY(' + y + 'px)';
+            }
+            }}
             
             > 
             
            
               {
                 works.map((work,index) => (
-                  <SwiperSlide key={`slide-${index}`} tag="li" style={{listStyle:"none"}} className="swiper-li" 
+                  <SwiperSlide key={`slide-${index}`} tag="li" style={{listStyle:"none"}} className="" 
                   
                   >  
                      
                     {/* <div className="job-bg" style={{opacity:0, transform:`translateX(${left}px)`}}></div> */}
-                    <div  onMouseEnter={(e)=> mouseHover(e)}  onMouseLeave={() => mouseLeave()}    >
-                    <div className="job-info" style={{marginBottom:"5px", padding: "0 10px"}}
-                    ref={el => {
-                      // el can be null - see https://reactjs.org/docs/refs-and-the-dom.html#caveats-with-callback-refs
-                      if (!el) return;
-              
-                    //  console.log(el.getBoundingClientRect().left); 
-                    }}
-                    
-                    >
-                      <div className="job-dates">
+                    <div  onMouseEnter={(e)=> mouseHover(e)}  onMouseLeave={() => mouseLeave()}  className="job-item"  >
+                    <div className="job-info" style={{marginBottom:"5px", margin: "0 10px"}}>
+                      <div className="job-dates" >
 
-                        <div class="job-date" style={{borderBottom:"2px solid #e2e2e2", display:"inline-block",height:"48px", marginBottom:"20px" }}>
-                            {work?.month && <span className="month" style={{color: "#fff", fontSize:"1rem", opacity:".7"}}> {work?.month} </span>}
-                            {work?.startDate && <span className="date" style={{color: "#a5c261", fontSize:"32px"}}> {work?.startDate} </span>} <br/>
+                        <div class="job-date" style={{ display:"inline-block",height:"48px", marginBottom:"20px" }}>
+                          <span className="single-job-date">
+                          {work?.month && <span className="month" style={{color: "#fff", fontSize:"1rem", opacity:".7"}}  > {work?.month} </span>}
+                            {work?.startDate && <span className="date" style={{color: "#fff", fontSize:"32px"}}  > {work?.startDate} </span>} <br/>
+                          </span>
+                           
                         </div>
-
-                        <div class="job-date" style={{borderBottom:"2px solid #e2e2e2", display:"inline-block",height:"48px", marginBottom:"20px" }}>
-                            {work?.endMonth && <span className="month" style={{color: "#fff", fontSize:"1rem", opacity: ".7"}}> {work?.endMonth} </span>}
-                            {work?.endDate && <span className="date" style={{color: "#a5c261", fontSize:"32px"}}> {work?.endDate} </span>} <br/>
+                        
+                        <div class="job-date" style={{ display:"inline-block",height:"48px", marginBottom:"20px" }}>
+                        <span className="single-job-date" style={{marginRight:"15px"}}>
+                        {work?.endMonth && <span className="month" style={{color: "#fff", fontSize:"1rem",  opacity: ".7"}} onMouseEnter={(e)=> e.stopPropagation()}> {work?.endMonth} </span>}
+                            {work?.endDate && <span className="date" style={{color: "#fff", fontSize:"32px", }} onMouseEnter={(e)=> e.stopPropagation()}> {work?.endDate} </span>} <br/>
+                          </span>
+                            
                         </div>
                       </div>
 
@@ -172,9 +227,9 @@ console.log(sliderClassName);
                       </div>
                     </div>
                     <p class="job-description">
-                    {!isShown && work.summary?.toString().length > 300 ? work.summary?.toString().substr(0,275)+"...":work.summary} <br/> <br/>
+                    <span> {!isShown && work.summary?.toString().length > 300 ? work.summary?.toString().substr(0,275)+"...":work.summary} </span> <br/> <br/>
                     {work?.highlights?.length > 1 && "Highlights"} <br/>
-                      {!isShown && work?.highlights?.toString().length > 2?  work?.highlights?.toString().substr(0,80) + "..." : work.highlights}
+                     <span>  {!isShown && work?.highlights?.toString().length > 2?  work?.highlights?.toString().substr(0,80) + "..." : work.highlights}  </span>
                     </p>
                     </div>
                   </SwiperSlide>

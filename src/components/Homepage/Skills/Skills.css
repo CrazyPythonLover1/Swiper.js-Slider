@@ -2,7 +2,7 @@
     font-size: 2em;
     font-weight: bold;
     padding-bottom: 20px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand', sans-serif !important;
 }
 
 #skills .skill{
@@ -14,13 +14,13 @@
     font-weight: bold;
     margin-block-start: 1em;
     margin-block-end: 1em;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand', sans-serif !important;
 }
 
 #skills p{
     font-size: 16px;
     font-weight: 300;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand', sans-serif !important;
     color: #fff;
     line-height: 1.2;
 }
