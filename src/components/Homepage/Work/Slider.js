@@ -150,27 +150,18 @@ const audios = works.map(work => {
 })
 
 
-
-
-
-
-
-//  const audio = audioData.map(item => {
-//   return new Audio(item)
-// })
-
-
-const [active, setActive] = useState(false);
+const [handlePlay, setHandlePlay] = useState(0);
 
 const handlePlayMusic = (audioNum) => {
     audios[audioNum].play();
-    setActive(!active);
-    audios[audioNum].addEventListener('ended', () => setActive(false));
+    setHandlePlay(audioNum)
+    audios[audioNum].addEventListener('ended', () => setHandlePlay(0));
 }
+console.log(handlePlay);
 
 const handlePauseMusic = (audioNum) => {
     audios[audioNum]?.pause();
-    setActive(!active);
+    setHandlePlay(0)
 }
 
 
@@ -178,8 +169,7 @@ const handlePauseMusic = (audioNum) => {
     return (
         <div>
           
-          {/* (100<cssProperty.left<420 && "100px") || (cssProperty.left<788 && "460px") ||  (790<cssProperty.left<1154 && "825px") */}
-         {/* 100<cssProperty.left<420 && "90" || 400<cssProperty.left<788 && "460" ||  790<cssProperty.left<1154 && "825" || cssProperty.left */}
+      
           { <div className={`job-bg ${cssProperty.mouseLeaveClass}`} style={{transform:`translateX(${cssProperty.left-2}px)`, 
               width:`${cssProperty.width+30}px`, height:`${cssProperty.bottom-cssProperty.top}px`, 
               minHeight:"500px", minWidth:"300px", opacity:`${cssProperty.opacity}`
@@ -195,16 +185,6 @@ const handlePauseMusic = (audioNum) => {
             slidesPerView={1}
             onSlideChange={() => mouseLeave() }
             onSwiper={(swiper)=> console.log()}
-            // onTouchEnd={(swiper,event)=>{
-            //    mouseHover(event)
-            //   console.log(event)}}
-            onTouchEnd={() => {
-              $('.job-item').removeClass('active');
-              $('.swiper-slide-active .job-item').addClass('active');
-            }}
-            onSlideChangeTransitionEnd={()=>{
-              // 
-            }}
             navigation
             loop="true"
             breakpoints={{
@@ -230,28 +210,7 @@ const handlePauseMusic = (audioNum) => {
               }
               
             }}
-            on= {{
-              init: function () {
-                var activeItem = document.querySelector('.swiper-slide-active');
-    
-                var sliderItem = activeItem.querySelector('.job-item');
-    
-                $('.swiper-slide-active .job-item').addClass('active');
-    
-                var x = sliderItem.getBoundingClientRect().left;
-                var y = sliderItem.getBoundingClientRect().top;
-                var width = sliderItem.getBoundingClientRect().width;
-                var height = sliderItem.getBoundingClientRect().height;
-                var bg = document.querySelector('.job-bg');
-    
-                $('.job-bg').addClass('active');
-    
-                bg.style.width = width + 'px';
-                bg.style.height = height + 'px';
-                bg.style.transform = 'translateX(' + x + 'px ) translateY(' + y + 'px)';
-            }
-            }}
-            
+           
             > 
             
            
@@ -290,8 +249,8 @@ const handlePauseMusic = (audioNum) => {
 
                         {/* PLAY Music BUTTON  */}
                         <div className="btn-play-pause" onMouseEnter={(e) => e.stopPropagation() } >
-                        {!active ? <FontAwesomeIcon onClick={() => handlePlayMusic(work.id)} icon={faPlay} />
-                            : <FontAwesomeIcon onClick={() => handlePauseMusic(work.id)} icon={faPause} />}
+                        { handlePlay === work.id? "" : <FontAwesomeIcon onClick={() => handlePlayMusic(work.id)} icon={faPlay} /> }
+                             { handlePlay === work.id &&<FontAwesomeIcon onClick={() => handlePauseMusic(work.id)} icon={faPause} />}
                             <span className="play-text" style={{display: "inline-block", opacity:'0'}}>
                               P l a y
                             </span>
@@ -302,7 +261,7 @@ const handlePauseMusic = (audioNum) => {
                     <p class="job-description">
                     <span> {!isShown && work.summary?.toString().length > 300 ? work.summary?.toString().substr(0,275)+"...":work.summary} </span> <br/> <br/>
                     {work?.highlights?.length > 1 && "Highlights"} <br/>
-                     <span>  {!isShown && work?.highlights?.toString().length > 2?  work?.highlights?.toString().substr(0,80) + "..." : work.highlights}  </span>
+                     <span>  {!isShown && work?.highlights?.toString().length > 2?  work?.highlights?.toString().substr(0,70) + "..." : work.highlights}  </span>
                     </p>
                     </div>
                   </SwiperSlide>
