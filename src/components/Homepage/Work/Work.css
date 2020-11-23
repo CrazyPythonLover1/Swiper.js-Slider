@@ -109,16 +109,18 @@ audio  input[pseudo="-webkit-media-controls-play-button"] {
 
 #work .btn-play-pause{
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 135%;
+    left: 45%;
     transform: translate(-50%,-50%);
-    transition: all .3s;
+    transition: all;
+    width: 100%;
 }
 
 #work .btn-play-pause .svg-inline--fa{
     font-size: 3.35rem;
     opacity: .8;
     cursor: pointer;
+    width: 100%;
 }
 
 #work .btn-play-pause .svg-inline--fa:hover{

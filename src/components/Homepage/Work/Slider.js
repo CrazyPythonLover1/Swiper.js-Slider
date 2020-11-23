@@ -7,7 +7,6 @@ import $ from 'jquery';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 
-import audio1 from '../../../data/audio/audio1.mp3';
 
 SwiperCore.use([Navigation, Pagination])
 
@@ -35,10 +34,12 @@ SwiperCore.use([Navigation, Pagination])
 useEffect( () => {
 
   if( window.innerWidth > 1500 ){
-    if( cssProperty.left !== 500 && cssProperty.left<=642){
+    if( cssProperty.left !== 500 && cssProperty.left<=580){
         setCssProperty({left:130})
         console.log(cssProperty.left !== 500)
-    } else if( cssProperty.left !== 870 && cssProperty.left<1030){
+        console.log(cssProperty.left)
+
+    } else if( cssProperty.left !== 870 && cssProperty.left<955){
         setCssProperty({ left:500})
         console.log(cssProperty.left !== 870 )
 
@@ -47,21 +48,19 @@ useEffect( () => {
     } else if(   cssProperty.left <= 1384){
         setCssProperty({ left:870})
         console.log(cssProperty.left)
-
     } 
   }
 
-  if(1499 > window.innerWidth > 1300 ){
-    if(cssProperty.left<432){
+  if(1499 > window.innerWidth && window.innerWidth > 1300 ){
+    if( cssProperty.left !== 500 && cssProperty.left<432){
         setCssProperty({left:130})
-    } else if(  433 < cssProperty.left < 810){
+    } else if(cssProperty.left !== 130 &&  cssProperty.left !== 870 && cssProperty.left < 810){
         setCssProperty({ left:500})
         console.log(cssProperty.left)
-    } else if( 820 <  cssProperty.left < 1184){
+    } else if(  cssProperty.left < 1184){
         setCssProperty({ left:870})
-    } else if( 1185 < cssProperty.left<100){
-        setCssProperty({left:90})
-    }
+        console.log(cssProperty.left)
+    } 
   }
 
   // if(window.innerWidth > 992 ){
@@ -75,34 +74,70 @@ useEffect( () => {
   //       setCssProperty({left:90})
   //   }
   // }
+
+//   if( 650 <= window.innerWidth && window.innerWidth <= 768){
+//     if( cssProperty.left < 80 ){
+//       setCssProperty({left: 70})
+//     }
+//     else if (cssProperty.left !==70 && cssProperty.left<=110){
+//       setCssProperty({left:120})
+//       console.log(cssProperty.left)
+//   } else if(cssProperty.left !==120 && cssProperty.left<=134){
+//     setCssProperty({left:134})
+//   } 
+// //   else if(  cssProperty.left <40){
+// //     setCssProperty({ left:40})
+// //     console.log(cssProperty.left)
+// // } else if(  cssProperty.left < 55){
+// //     setCssProperty({ left:50})
+// //     console.log(cssProperty.left)
+// // } else if( cssProperty.left<60){
+// //     setCssProperty({left:60})
+// //     console.log(cssProperty.left)
+// // } 
+//   }
   
   
-  if(window.innerWidth < 650){
+  if( 320 < window.innerWidth && window.innerWidth < 650){
 
     
-    if (cssProperty.left<=15){
-      setCssProperty({left:15})
-  } else if(cssProperty.left<=30){
-    setCssProperty({left:30})
-  } 
-//   else if(  cssProperty.left <40){
+  //   if (cssProperty.left<=15){
+  //     setCssProperty({left:15})
+  // } 
+//   else if(cssProperty.left !==15 && cssProperty.left<=30){
+//     setCssProperty({left:30})
+//   } else if( cssProperty.left !==30 && cssProperty.left <40){
 //     setCssProperty({ left:40})
 //     console.log(cssProperty.left)
-// } else if(  cssProperty.left < 55){
-//     setCssProperty({ left:50})
-//     console.log(cssProperty.left)
-// } else if( cssProperty.left<60){
-//     setCssProperty({left:60})
-//     console.log(cssProperty.left)
-// } 
-  }
 
-  if(window.innerWidth <= 320 ) {
-    if (cssProperty.left<=15){
-      setCssProperty({left:15})
-    } else if (cssProperty.left <=30){
-      setCssProperty({left:25})
-    }
+//   } else if( cssProperty.left !==40 &&   cssProperty.left < 55){
+//       setCssProperty({ left:50})
+//       console.log(cssProperty.left)
+//   } else if( cssProperty.left !==50 && cssProperty.left !==40 &&  cssProperty.left<60){
+//       setCssProperty({left:60})
+//       console.log(cssProperty.left)
+//   } else if( cssProperty.left !==50 && cssProperty.left !==40 &&  cssProperty.left<80){
+//     setCssProperty({left:100})
+//     console.log(cssProperty.left)
+// }
+  // else if( cssProperty.left !==40 && cssProperty.left !==50 && cssProperty.left !==60 &&  cssProperty.left<85){
+  //   setCssProperty({left:40})
+  //   console.log(cssProperty.left)
+  // } 
+  // else if ( cssProperty.left < 170){
+  //   setCssProperty({left:40})
+  // }
+// }
+
+  // if(window.innerWidth <= 320 ) {
+  //   if (cssProperty.left<=15){
+  //     setCssProperty({left:15})
+  //   } else if (cssProperty.left <=30){
+  //     setCssProperty({left:25})
+  //   }
+  }
+  if(window.innerWidth < 376){
+    setCssProperty({left:30})
   }
   
 }, [cssProperty.left] )
@@ -240,9 +275,9 @@ const handlePauseMusic = (audioNum) => {
                           
                            
                         
-                        <span className="end-single-job-date" >
-                          <span className="job-date-items" style={{marginRight:"15px"}}>
-                          {work?.endMonth && <span className="month" style={{color: "#fff", fontSize:"1rem",  opacity: ".7"}} onMouseEnter={(e)=> e.stopPropagation()}> {work?.endMonth} </span>}
+                        <span className="end-single-job-date" onMouseEnter={(e)=> e.stopPropagation()}>
+                          <span className="job-date-items" style={{marginRight:"15px"}} onMouseEnter={(e)=> e.stopPropagation()}>
+                          {work?.endMonth && <span className="month" style={{color: "#fff", fontSize:"1rem",  opacity: ".7"}} onMouseEnter={(e)=> e.stopPropagation()}  > {work?.endMonth} </span>}
                             {work?.endDate && <span className="date" style={{color: "#fff", fontSize:"32px", }} onMouseEnter={(e)=> e.stopPropagation()}> {work?.endDate} </span>} <br/>
                           </span>
                         </span>
@@ -254,11 +289,11 @@ const handlePauseMusic = (audioNum) => {
                         <span style={{fontSize:"16px",}}> {work.position} </span>
 
                         {/* PLAY Music BUTTON  */}
-                        <div className="btn-play-pause" onClick={(e) => e.stopPropagation() } >
+                        <div className="btn-play-pause" onMouseEnter={(e) => e.stopPropagation() } >
                         {!active ? <FontAwesomeIcon onClick={() => handlePlayMusic(work.id)} icon={faPlay} />
                             : <FontAwesomeIcon onClick={() => handlePauseMusic(work.id)} icon={faPause} />}
                             <span className="play-text" style={{display: "inline-block", opacity:'0'}}>
-                              Play
+                              P l a y
                             </span>
                         </div>
                         {/* PLAY Music BUTTON  */}

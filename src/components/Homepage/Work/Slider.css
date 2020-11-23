@@ -29,6 +29,7 @@
     transition: all .3s;
     z-index: -1;
     left: -30px !important;
+    object-fit:contain !important;
 }
 
 .active{
@@ -83,8 +84,16 @@
 
 .swiper-slide:hover .play-text{
   display: block !important;
-  opacity: 1 !important;
+  opacity: 1 !important; 
+  position: absolute;
+  left: 45%;
 }
+
+.swiper-slide:hover .btn-play-pause{
+  position: absolute;
+  top: 119% !important;
+}
+
 
 
 
@@ -97,12 +106,12 @@
 }
 
 .single-job-date, .end-single-job-date{
-  min-width: 300px !important;
+  min-width: 100% !important;
   position: absolute;
 }
 
 .end-single-job-date {
-  right: 20px;
+  right: 10px;
 }
 
 
@@ -121,11 +130,13 @@
   padding-bottom: 6px;
 }
 
-
-
-.job-title{
+.job__title{
   position:relative !important;
-  top: 150px !important;
+  top: -70px !important;
+  padding-top: 70px;
+  padding-right: 20px;
+  width: 100%;
+  margin: 0px 30px 0 0 !important;
 }
 
 .job-date .month{
@@ -137,7 +148,7 @@
     border-radius: 10px;
     box-shadow: 0 6px 20px 3px rgba(0, 0, 0, 0.25);
     height: 200px;
-    margin: 30px 20px 0 0 !important;
+    margin: 30px 30px 0 0 !important;
     padding-right: 10px !important;
     transition: all .5s;
     transform-origin: 0% 0%;
@@ -165,9 +176,10 @@
 }
 
 
-.job-description::-webkit-scrollbar , .job-summary::-webkit-scrollbar {
-    width: 2px;
+.job-description::-webkit-scrollbar {
+    width: 3px;
     color: #858585;
+    padding: 5px;
 }
  
 ::-webkit-scrollbar-track {
@@ -225,10 +237,18 @@
       
       } */
       
-    /* .swiper-slide{
-        margin: auto;
-        width: 100% !important;
-    } */
+    .swiper-slide{
+      padding-right: 10px;
+    }
+
+    .job-bg{
+      max-width: 500px;
+    }
+    .job-description{
+      padding: 10px !important;
+    }
+
+    
   }
   
   @media screen and (min-width: 768px) {
