@@ -103,6 +103,7 @@
   position: relative;
   height: 70px;
   background-color: transparent;
+  pointer-events: none;
 }
 
 .single-job-date, .end-single-job-date{
@@ -111,7 +112,7 @@
 }
 
 .end-single-job-date {
-  right: 10px;
+  right: 5px;
 }
 
 
@@ -177,18 +178,18 @@
 
 
 .job-description::-webkit-scrollbar {
-    width: 3px;
-    color: #858585;
+    width: 4px;
 }
  
 .job-description::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(218, 33, 33, 0.3); 
+    -webkit-box-shadow: inset 0 0 6px #00000059; 
     border-radius: 10px;
 }
  
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(129, 137, 201, 0.5); 
+.job-description::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    -webkit-box-shadow: inset 0 0 6px #414141; 
+    
 }
 
 
@@ -202,16 +203,12 @@
       width: 100%;
     }
     .swiper-slide{
-        padding: 0 15px !important;
+        padding: 0 0 0 15px !important;
     }
 
-    .end-single-job-date {
-      right: 20px;
-    }
-
+  
     .end-single-job-date .job-date-items{
       position: absolute;
-      right: 20px;
 
     
     }
@@ -219,7 +216,36 @@
     .swiper-button-prev::after, .swiper-button-next::after{
       display: none;
     }
+
+    .job-active{
+      color: #000;
+    }
+    .job-active .job-description{
+      color: #000;
+      box-shadow: none;
+      overflow-y: scroll;
+      
+  }
+  .job-active .month{
+    color: #222222 !important;
+    transition-delay: .1s;
     
+  }
+  
+  .job-active .date{
+    color: #a5c261 !important;
+    transition-delay: .1s;
+    
+  }
+
+  .job-active .job-date-items {
+    border-bottom: 2px solid #858585 !important;
+    padding-bottom: 6px;
+  }
+  .job-active .end-single-job-date .job-date-items{
+    padding-bottom: 1px !important;
+  
+  }
     
   }
 

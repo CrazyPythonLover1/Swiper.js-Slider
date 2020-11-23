@@ -18,10 +18,9 @@ SwiperCore.use([Navigation, Pagination])
   const [cssProperty, setCssProperty] = useState({});
 
 
-  const mouseHover = (e) => {
+  const mouseHover = (e,id) => {
     const {width, left, top, bottom} = e.target.parentNode.getBoundingClientRect()
-    setCssProperty({width, left, top, bottom, opacity:1})
-    console.log(left)
+    setCssProperty({width, left, top, bottom, opacity:1,  id:id})
     setIsShown(!isShown);
   }
 
@@ -151,13 +150,14 @@ const audios = works.map(work => {
 
 
 const [handlePlay, setHandlePlay] = useState(0);
+const [handleClass, setHandleClass] = useState("")
 
 const handlePlayMusic = (audioNum) => {
     audios[audioNum].play();
     setHandlePlay(audioNum)
+    setHandleClass("job-active")
     audios[audioNum].addEventListener('ended', () => setHandlePlay(0));
 }
-console.log(handlePlay);
 
 const handlePauseMusic = (audioNum) => {
     audios[audioNum]?.pause();
@@ -183,7 +183,10 @@ const handlePauseMusic = (audioNum) => {
             wrapperTag="ul"
             spaceBetween={20}
             slidesPerView={1}
-            onSlideChange={() => mouseLeave() }
+            onSlideChange={() => {
+              mouseLeave()
+              setHandleClass("")
+            } }
             onSwiper={(swiper)=> console.log()}
             navigation
             loop="true"
@@ -216,12 +219,12 @@ const handlePauseMusic = (audioNum) => {
            
               {
                 works.map((work,index) => (
-                  <SwiperSlide key={`slide-${index}`} tag="li" style={{listStyle:"none"}} className=""  >  
+                  <SwiperSlide key={`slide-${index}`} tag="li" style={{listStyle:"none"}} className={handleClass}  >  
                      
                     {/* <div className="job-bg" style={{opacity:0, transform:`translateX(${left}px)`}}></div> */}
 
                     
-                    <div  onMouseEnter={(e)=> mouseHover(e)}  onMouseLeave={() => mouseLeave()}  className="job-item"  >
+                    <div  onMouseEnter={(e)=> mouseHover(e, work.id)}  onMouseLeave={() => mouseLeave()}  className="job-item"  >
                     <div className="job-info" style={{marginBottom:"5px", margin: "0 10px"}}>
                       <div className="job-dates" >
 
@@ -248,8 +251,12 @@ const handlePauseMusic = (audioNum) => {
                         <span style={{fontSize:"16px",}}> {work.position} </span>
 
                         {/* PLAY Music BUTTON  */}
-                        <div className="btn-play-pause" onMouseEnter={(e) => e.stopPropagation() } >
-                        { handlePlay === work.id? "" : <FontAwesomeIcon onClick={() => handlePlayMusic(work.id)} icon={faPlay} /> }
+                        <div className="btn-play-pause" >
+                        { handlePlay === work.id? "" : <FontAwesomeIcon onClick={(e) => {
+                          handlePlayMusic(work.id) 
+                          mouseHover(e, work.id)}
+                          } icon={faPlay} /> }
+
                              { handlePlay === work.id &&<FontAwesomeIcon onClick={() => handlePauseMusic(work.id)} icon={faPause} />}
                             <span className="play-text" style={{display: "inline-block", opacity:'0'}}>
                               P l a y
