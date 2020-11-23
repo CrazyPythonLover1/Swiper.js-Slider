@@ -109,7 +109,7 @@ audio  input[pseudo="-webkit-media-controls-play-button"] {
 
 #work .btn-play-pause{
     position: absolute;
-    top: 135%;
+    top: 140%;
     left: 45%;
     transform: translate(-50%,-50%);
     transition: all;
