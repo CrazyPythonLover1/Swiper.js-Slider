@@ -3,7 +3,6 @@ import './Slider.css'
 import { Swiper, SwiperSlide} from 'swiper/react';
 import SwiperCore, {Navigation, Pagination} from 'swiper';
 import 'swiper/swiper-bundle.css';
-import $ from 'jquery';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 
@@ -153,14 +152,14 @@ const [handlePlay, setHandlePlay] = useState(0);
 const [handleClass, setHandleClass] = useState("")
 
 const handlePlayMusic = (audioNum) => {
-    audios[audioNum].play();
+    audios[audioNum-1].play();
     setHandlePlay(audioNum)
     setHandleClass("job-active")
-    audios[audioNum].addEventListener('ended', () => setHandlePlay(0));
+    audios[audioNum-1].addEventListener('ended', () => setHandlePlay(0));
 }
 
 const handlePauseMusic = (audioNum) => {
-    audios[audioNum]?.pause();
+    audios[audioNum-1].pause();
     setHandlePlay(0)
 }
 
@@ -174,6 +173,7 @@ const handlePauseMusic = (audioNum) => {
               width:`${cssProperty.width+30}px`, height:`${cssProperty.bottom-cssProperty.top}px`, 
               minHeight:"500px", minWidth:"300px", opacity:`${cssProperty.opacity}`
               }}
+              onMouseLeave={() => mouseLeave()}
             >  
             </div> 
           }
